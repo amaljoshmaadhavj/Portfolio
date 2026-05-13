@@ -9,7 +9,7 @@ import { Timeline } from './components/Timeline';
 import { Button } from './components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle } from './components/ui/Card';
 import { Badge } from './components/ui/Badge';
-import { Code as Github, Briefcase as Linkedin, Mail, ExternalLink, ArrowRight, Code, Database, Cpu, Brain, Layers, Award, CheckCircle2, ChevronDown } from 'lucide-react';
+import { Code as Github, Briefcase as Linkedin, Mail, ExternalLink, ArrowRight, Code, Database, Cpu, Brain, Layers, CheckCircle2, ChevronDown } from 'lucide-react';
 import heroBackground from './assets/Untitled design-4.jpg';
 import heroHoverBackground from './assets/Untitled design-5.jpg';
 

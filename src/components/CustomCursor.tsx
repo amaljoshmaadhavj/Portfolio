@@ -16,9 +16,6 @@ export const CustomCursor = () => {
   const outerXSpring = useSpring(cursorX, outerSpringConfig);
   const outerYSpring = useSpring(cursorY, outerSpringConfig);
 
-  const particleXSpring = useSpring(cursorX, { damping: 50, stiffness: 100 });
-  const particleYSpring = useSpring(cursorY, { damping: 50, stiffness: 100 });
-
   useEffect(() => {
     // Hide cursor on touch devices
     if (window.matchMedia('(pointer: coarse)').matches) {
