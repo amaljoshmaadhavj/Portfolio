@@ -1,3 +1,5 @@
+import { useRef, useEffect, useState } from 'react';
+import { motion, useScroll, useSpring, useInView, animate, useTransform, AnimatePresence } from 'framer-motion';
 import { SectionTransition } from './SectionTransition';
 
 interface TimelineItemProps {
@@ -7,19 +9,62 @@ interface TimelineItemProps {
   subtitle: string;
   description: string;
   isLeft: boolean;
+  progress: any;
+  index: number;
+  total: number;
 }
 
-const TimelineItem = ({ year, type, title, subtitle, description, isLeft }: TimelineItemProps) => {
+const YearCounter = ({ targetYear }: { targetYear: number }) => {
+  const [count, setCount] = useState(2005);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  useEffect(() => {
+    if (isInView) {
+      const controls = animate(2005, targetYear, {
+        duration: 3,
+        ease: [0.16, 1, 0.3, 1], // Custom ultra-smooth easeOutExpo
+        onUpdate(value) {
+          setCount(Math.floor(value));
+        },
+      });
+      return () => controls.stop();
+    }
+  }, [isInView, targetYear]);
+
+  return <span ref={ref}>{count}</span>;
+};
+
+const TimelineItem = ({ year, type, title, subtitle, description, isLeft, progress, index, total }: TimelineItemProps) => {
+  const targetYear = parseInt(year);
+  const activationPoint = (index) / (total); 
+  const isActiveTransform = useTransform(progress, (v: number) => v >= activationPoint);
+  const [active, setActive] = useState(progress.get() >= activationPoint);
+
+  useEffect(() => {
+    // Sync initial state
+    setActive(progress.get() >= activationPoint);
+    
+    return isActiveTransform.on("change", (v) => setActive(v));
+  }, [isActiveTransform, progress, activationPoint]);
+  
   return (
-    <div className={`flex flex-col md:flex-row w-full mb-16 md:mb-24 items-center justify-between ${isLeft ? 'md:flex-row-reverse' : ''}`}>
+    <div className={`flex flex-col md:flex-row w-full mb-12 md:mb-24 items-start md:items-center justify-between ${isLeft ? 'md:flex-row-reverse' : ''} relative`}>
+      {/* Mobile Dot */}
+      <div className="absolute left-[19px] top-0 bottom-[-48px] w-[1px] bg-border md:hidden last:bottom-0">
+        <div className="absolute top-0 left-[-4px] w-2 h-2 rounded-full bg-primary" />
+      </div>
+      
       {/* Content Side */}
-      <div className="w-full md:w-[45%]">
+      <div className="w-full md:w-[45%] pl-12 md:pl-0">
         <SectionTransition delay={0.1} className={`flex flex-col md:items-start md:text-left`}>
           <div className={`flex items-center gap-3 mb-3 ${isLeft ? 'md:flex-row-reverse' : ''}`}>
             <span className="text-primary font-display font-bold uppercase text-xs tracking-widest opacity-80 bg-primary/5 px-3 py-1 rounded-full border border-primary/10">
               {type}
             </span>
-            <span className="md:hidden text-lg font-bold text-foreground/40">{year}</span>
+            <span className="md:hidden text-lg font-bold text-foreground/40 hover:text-black transition-colors">
+              <YearCounter targetYear={targetYear} />
+            </span>
           </div>
           <h3 className="text-xl md:text-2xl font-display font-bold mb-2 text-foreground tracking-tight">
             {title}
@@ -33,18 +78,42 @@ const TimelineItem = ({ year, type, title, subtitle, description, isLeft }: Time
         </SectionTransition>
       </div>
 
-      {/* Center Line Dot */}
       <div className="hidden md:flex w-[10%] justify-center relative">
-        <div className="w-10 h-10 rounded-full bg-white border border-border flex items-center justify-center z-10 shadow-sm group-hover:border-primary/50 transition-colors duration-500">
-           <div className="w-2 h-2 rounded-full bg-primary/40 animate-pulse"></div>
-        </div>
+        <motion.div 
+          animate={{ 
+            borderColor: active ? "var(--primary)" : "rgb(226, 232, 240)",
+            scale: active ? 1.1 : 1
+          }}
+          className="w-10 h-10 rounded-full bg-white border border-border flex items-center justify-center z-10 shadow-lg transition-all duration-500 relative"
+        >
+           {/* Primary Glow Ring */}
+           <AnimatePresence>
+             {active && (
+               <motion.div 
+                 initial={{ opacity: 0, scale: 0.5 }}
+                 animate={{ opacity: 0.2, scale: 1.5 }}
+                 exit={{ opacity: 0, scale: 0.5 }}
+                 className="absolute inset-0 rounded-full bg-primary animate-ping"
+               />
+             )}
+           </AnimatePresence>
+           
+           {/* Inner Pulse Dot */}
+           <motion.div 
+             animate={{ 
+               backgroundColor: active ? "rgb(51, 65, 85)" : "rgb(226, 232, 240)",
+               boxShadow: active ? "0 0 20px rgba(51, 65, 85, 0.6)" : "none"
+             }}
+             className="w-2.5 h-2.5 rounded-full z-20 transition-colors"
+           />
+        </motion.div>
       </div>
 
       {/* Year Side */}
       <div className="hidden md:flex md:w-[45%]">
         <SectionTransition delay={0.2} className={`flex w-full ${isLeft ? 'md:justify-start' : 'md:justify-end'}`}>
-          <span className="text-5xl md:text-7xl lg:text-9xl font-display font-extrabold text-[#0F172A]/[0.12] tracking-normal hover:text-primary/20 transition-all duration-700 select-none">
-            {year}
+          <span className="text-5xl md:text-7xl lg:text-9xl font-display font-extrabold text-[#0F172A]/[0.12] tracking-normal hover:text-black transition-all duration-500 select-none">
+            <YearCounter targetYear={targetYear} />
           </span>
         </SectionTransition>
       </div>
@@ -53,6 +122,18 @@ const TimelineItem = ({ year, type, title, subtitle, description, isLeft }: Time
 };
 
 export const Timeline = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 80%", "end 80%"]
+  });
+
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   const journeys = [
     {
       year: "2023",
@@ -106,16 +187,44 @@ export const Timeline = () => {
   ];
 
   return (
-    <div className="relative py-12">
-      {/* Vertical Line */}
+    <div ref={containerRef} className="relative py-12 px-2 md:px-0">
+      {/* Vertical Line - Desktop Base */}
       <div className="absolute left-[50%] top-0 bottom-0 w-[1px] bg-border hidden md:block"></div>
       
-      <div className="flex flex-col items-center">
+      {/* Animated Progress Line - Desktop */}
+      <motion.div 
+        className="absolute left-[50%] top-0 bottom-0 w-[2px] bg-primary origin-top hidden md:block z-10 shadow-[0_0_15px_rgba(51,65,85,0.3)]"
+        style={{ scaleY }}
+      />
+
+      {/* Progress Head Dot - Desktop */}
+      <motion.div
+        className="absolute left-[50%] top-0 w-3 h-3 rounded-full bg-primary hidden md:block z-20"
+        style={{ 
+          x: "-50%",
+          top: "0%",
+          y: useSpring(useScroll({ target: containerRef, offset: ["start 80%", "end 80%"] }).scrollYProgress, { stiffness: 100, damping: 30 })
+        }}
+        animate={{
+          top: `${scrollYProgress.get() * 100}%`
+        }}
+      />
+      
+      {/* Mobile Animated Line */}
+      <motion.div 
+        className="absolute left-[19px] top-0 bottom-0 w-[2px] bg-primary origin-top md:hidden z-10"
+        style={{ scaleY }}
+      />
+
+      <div className="flex flex-col items-start md:items-center">
         {journeys.map((item, index) => (
           <TimelineItem 
             key={index}
             {...item}
             isLeft={index % 2 === 0}
+            progress={scrollYProgress}
+            index={index}
+            total={journeys.length}
           />
         ))}
       </div>

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { Navbar } from './components/Navbar';
+import { cn } from '@/lib/utils';
 import { CustomCursor } from './components/CustomCursor';
 import { SectionTransition, StaggerWrapper, StaggerItem } from './components/SectionTransition';
 import { StatusIndicator } from './components/StatusIndicator';
@@ -8,145 +10,160 @@ import { Button } from './components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle } from './components/ui/Card';
 import { Badge } from './components/ui/Badge';
 import { Code as Github, Briefcase as Linkedin, Mail, ExternalLink, ArrowRight, Code, Database, Cpu, Brain, Layers, Award, CheckCircle2, ChevronDown } from 'lucide-react';
-import profileImage from './assets/AMALJOSH MAADHAV J.jpg';
+import heroBackground from './assets/Untitled design-4.jpg';
+import heroHoverBackground from './assets/Untitled design-5.jpg';
 
 function App() {
   const [showMoreProjects, setShowMoreProjects] = useState(false);
+  const [isHeroHovered, setIsHeroHovered] = useState(false);
   return (
     <div className="relative min-h-screen font-sans selection:bg-primary/10 selection:text-foreground bg-subtle-mesh overflow-x-hidden">
       <CustomCursor />
       <Navbar />
-      
+
       {/* Hero Section */}
-      <section id="home" className="relative min-h-[90vh] flex flex-col justify-center px-6 md:px-12 lg:px-24">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16 items-center max-w-7xl mx-auto w-full">
-          <div className="lg:col-span-2">
-            <StaggerWrapper delay={0.1} className="flex flex-col items-start gap-12">
-              <StaggerItem>
-                <StatusIndicator className="bg-transparent border-primary/10" />
-              </StaggerItem>
-              
+      <section
+        id="home"
+        onMouseEnter={() => setIsHeroHovered(true)}
+        onMouseLeave={() => setIsHeroHovered(false)}
+        className="relative min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 pt-36 lg:pt-24 scroll-mt-24 overflow-hidden"
+      >
+        {/* Cinematic Background Image Layer */}
+        <div className="absolute inset-0 -z-10 rounded-none !important overflow-hidden">
+          {/* Default Image */}
+          <motion.img
+            initial={false}
+            animate={{ opacity: isHeroHovered ? 0 : 1 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            src={heroBackground}
+            alt="Background Default"
+            className="absolute inset-0 w-full h-full object-cover object-[80%_center] md:object-[center_15%] rounded-none"
+          />
+
+          {/* Hover Image */}
+          <motion.img
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isHeroHovered ? 1 : 0 }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            src={heroHoverBackground}
+            alt="Background Hover"
+            className="absolute inset-0 w-full h-full object-cover object-[80%_center] md:object-[center_15%] rounded-none"
+          />
+
+          {/* Overlays */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-white/30 to-transparent" />
+          <div className="absolute inset-0 bg-white/5 backdrop-blur-[0.5px]" />
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center max-w-7xl mx-auto w-full">
+          <div className="order-2 lg:order-1 lg:col-span-8">
+            <StaggerItem className="flex flex-col items-start gap-6">
+              <StatusIndicator className="border-primary/10 shadow-lg" />
+
               <div className="flex flex-col gap-6 w-full">
-                <StaggerItem>
-                  <h2 className="text-sm md:text-base font-display font-medium uppercase tracking-[0.3em] text-muted-foreground">
-                    Amaljosh Maadhav J
-                  </h2>
-                </StaggerItem>
-                
-                <StaggerItem>
-                  <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.1] tracking-tight">
-                    AI & DATA SCIENCE <br />
-                    UNDERGRADUATE<span className="text-primary">.</span>
-                  </h1>
-                </StaggerItem>
-                
-                <StaggerItem>
-                  <p className="max-w-2xl text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
-                    Building scalable, production-ready AI systems from data to deployment. 
-                    Focused on end-to-end machine learning pipelines.
-                  </p>
-                </StaggerItem>
+                <h2 className="text-sm md:text-base font-display font-medium uppercase tracking-[0.3em] text-muted-foreground ml-1">
+                  Amaljosh Maadhav J
+                </h2>
+                <h1 className="text-4xl md:text-5xl lg:text-[4.5rem] font-display font-bold leading-[1.05] tracking-tighter text-[#000000]">
+                  AI & DATA SCIENCE <br />
+                  UNDERGRADUATE<span className="text-primary">.</span>
+                </h1>
+                <p className="max-w-2xl text-lg md:text-xl text-muted-foreground font-light leading-relaxed mt-4">
+                  Building scalable, production-ready AI systems from data to deployment.
+                  Focused on end-to-end machine learning pipelines.
+                </p>
               </div>
-              
-              <StaggerItem className="flex flex-wrap gap-6">
-                <Button size="lg" className="rounded-lg px-8 h-14 text-base font-semibold transition-all hover:translate-y-[-2px] hover:shadow-lg hover:shadow-primary/5 active:scale-[0.98]" asChild>
+
+              <div className="flex flex-wrap items-center gap-8 mt-4">
+                <Button size="lg" className="rounded-full px-10 h-16 text-base font-bold transition-all hover:translate-y-[-4px] hover:shadow-2xl hover:shadow-primary/10 active:scale-[0.98]" asChild>
                   <a href="#projects">
-                    View Research & Projects <ArrowRight className="ml-2 w-5 h-5" />
+                    VIEW RESEARCH & PROJECTS <ArrowRight className="ml-2 w-5 h-5" />
                   </a>
                 </Button>
-                <div className="flex items-center gap-6 border-l border-border pl-6">
-                  <a href="https://github.com/amaljoshmaadhavj" target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
+                <div className="flex items-center gap-8 border-l border-border pl-8 py-2">
+                  <a href="https://github.com/amaljoshmaadhavj" target="_blank" className="text-muted-foreground hover:text-primary transition-all hover:scale-110">
                     <Github className="w-6 h-6" />
                   </a>
-                  <a href="https://www.linkedin.com/in/amaljoshmaadhavj/" target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
+                  <a href="https://www.linkedin.com/in/amaljoshmaadhavj/" target="_blank" className="text-muted-foreground hover:text-primary transition-all hover:scale-110">
                     <Linkedin className="w-6 h-6" />
                   </a>
-                  <a href="mailto:amal018josephmathi@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                  <a href="mailto:amal018josephmathi@gmail.com" className="text-muted-foreground hover:text-primary transition-all hover:scale-110">
                     <Mail className="w-6 h-6" />
                   </a>
                 </div>
-              </StaggerItem>
-            </StaggerWrapper>
+              </div>
+            </StaggerItem>
           </div>
-          
-          <SectionTransition delay={0.3} className="hidden lg:flex justify-center items-center lg:col-span-1">
-            <img 
-              src={profileImage}
-              alt="Amaljosh Maadhav J" 
-              className="w-full max-w-xs h-auto rounded-lg object-cover shadow-lg"
-            />
-          </SectionTransition>
+
         </div>
-        
+
         {/* Subtle Decorative Elements */}
-        <div className="absolute top-20 right-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full -z-10" />
+        <div className="absolute top-20 right-0 w-64 h-64 md:w-[500px] md:h-[500px] bg-primary/5 blur-[80px] md:blur-[120px] rounded-full -z-10" />
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-32 px-6 md:px-12 lg:px-24 bg-white/50 border-y border-border">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+      {/* Mission Section */}
+      <section id="about" className="py-32 px-6 md:px-12 lg:px-24 bg-white border-b border-border">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
           <div className="lg:col-span-12">
             <SectionTransition>
-              <h2 className="text-3xl md:text-4xl font-display font-bold mb-16 inline-flex items-center gap-4">
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 inline-flex items-center gap-4">
                 <span className="w-12 h-[1px] bg-primary/20"></span>
                 The Mission
               </h2>
             </SectionTransition>
           </div>
-          
+
           <div className="lg:col-span-7">
             <SectionTransition delay={0.1}>
-              <p className="text-xl md:text-3xl font-normal leading-relaxed text-foreground/80 mb-12 italic border-l-4 border-primary/10 pl-8">
+              <p className="text-base md:text-lg font-bold leading-relaxed text-[#000000]/80 mb-6 italic border-l-2 border-primary/10 pl-6">
                 "Building intelligent AI systems that solve real-world problems through data, automation, and scalable machine learning.”
               </p>
             </SectionTransition>
-            
-            <StaggerWrapper className="space-y-8 text-lg text-muted-foreground leading-relaxed">
+
+            <StaggerWrapper className="space-y-6 text-base md:text-lg text-[#000000]/40 leading-relaxed max-w-2xl">
               <StaggerItem>
-                Applied AI & Data Science undergraduate passionate about Data Science, Machine Learning, and AI Engineering.
-                Focused on creating impactful solutions in areas like cyber forensics, predictive analytics, recruitment automation, and intelligent decision systems.
-              </StaggerItem>
-              <StaggerItem>
-                Currently exploring NLP, RAG systems, cyber investigation AI, and scalable deployment architectures while preparing for Data Scientist and ML Engineer roles.
+                Building strong foundations in Artificial Intelligence, Machine Learning, Data Science, and intelligent system development while actively participating in technical projects and innovation programs.
               </StaggerItem>
             </StaggerWrapper>
           </div>
-          
-          <div className="lg:col-span-5 grid grid-cols-2 gap-8">
-             <SectionTransition delay={0.3} className="space-y-4">
-                <h3 className="font-display font-bold uppercase text-xs tracking-widest text-primary opacity-60">Focus</h3>
-                <ul className="space-y-2 text-sm">
-                   <li>Predictive Modeling</li>
-                   <li>NLP & RAG</li>
-                   <li>AI Product Development </li>
-                </ul>
-             </SectionTransition>
-             <SectionTransition delay={0.4} className="space-y-4">
-                <h3 className="font-display font-bold uppercase text-xs tracking-widest text-primary opacity-60">Interests</h3>
-                <ul className="space-y-2 text-sm">
-                   <li>Data Analytics</li>
-                   <li>Cyber AI</li>
-                   <li>Intelligent Systems</li>
-                </ul>
-             </SectionTransition>
+
+          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <SectionTransition delay={0.3} className="space-y-4">
+              <h3 className="font-display font-normal uppercase text-xs tracking-[0.3em] text-[#000000]/40 -ml-[0.1em]">Focus</h3>
+              <ul className="space-y-2 text-sm text-[#000000]/40">
+                <li>Predictive Modeling</li>
+                <li className="font-bold text-[#000000]/40">NLP & RAG</li>
+                <li>AI Product Development </li>
+              </ul>
+            </SectionTransition>
+            <SectionTransition delay={0.4} className="space-y-4">
+              <h3 className="font-display font-normal uppercase text-xs tracking-[0.3em] text-[#000000]/40 -ml-[0.1em]">Interests</h3>
+              <ul className="space-y-2 text-sm text-[#000000]/40">
+                <li>Data Analytics</li>
+                <li className="font-bold text-[#000000]/40">Cyber AI</li>
+                <li>Intelligent Systems</li>
+              </ul>
+            </SectionTransition>
           </div>
         </div>
+      </section>
 
-        {/* My Journey Timeline */}
-        <div className="max-w-7xl mx-auto mt-32">
+      {/* Journey Section */}
+      <section id="journey" className="py-32 px-6 md:px-12 lg:px-24 bg-slate-50/50 border-b border-border">
+        <div className="max-w-7xl mx-auto">
           <SectionTransition className="mb-20">
             <h2 className="text-3xl md:text-4xl font-display font-bold inline-flex items-center gap-4">
               <span className="w-12 h-[1px] bg-primary/20"></span>
               My Journey
             </h2>
           </SectionTransition>
-          
+
           <Timeline />
         </div>
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-32 px-6 md:px-12 lg:px-24">
+      <section id="skills" className="py-32 px-6 md:px-12 lg:px-24 scroll-mt-32 bg-white">
         <div className="max-w-7xl mx-auto">
           <SectionTransition className="mb-20">
             <h2 className="text-3xl md:text-4xl font-display font-bold inline-flex items-center gap-4">
@@ -155,38 +172,48 @@ function App() {
             </h2>
           </SectionTransition>
 
-          <StaggerWrapper className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1px bg-border border border-border">
-            <SkillCard 
-              icon={<Brain className="w-6 h-6" />}
-              title="Machine Learning"
-              skills={["Regression", "Clustering", "Explainable AI", "Feature Engineering", "Scikit-Learn"]}
-            />
-            <SkillCard 
-              icon={<Cpu className="w-6 h-6" />}
-              title="Deep Learning & NLP"
-              skills={["Transformers", "CNNs", "RAG", "LLMs", "Tf-Idf", "PyTorch", "TensorFlow"]}
-            />
-            <SkillCard 
-              icon={<Code className="w-6 h-6" />}
-              title="Computer Vision"
-              skills={["YOLO", "OCR", "OpenCV", "Object Detection", "Image Processing"]}
-            />
-            <SkillCard 
-              icon={<Database className="w-6 h-6" />}
-              title="Data Systems"
-              skills={["MongoDB", "SQL", "FAISS Vector DB", "Pandas", "NumPy", "Tableau"]}
-            />
-            <SkillCard 
-              icon={<Layers className="w-6 h-6" />}
-              title="Engineering"
-              skills={["Node.js", "Docker", "REST APIs", "FastAPI", "Microservices", "Git"]}
-            />
-            <SkillCard 
-              icon={<Award className="w-6 h-6" />}
-              title="Foundations"
-              skills={["Model Deployment", "Data Leakage Prevention", "Cross Validation", "Model Eval"]}
-            />
-          </StaggerWrapper>
+          <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
+            <div className="md:col-span-3">
+              <SkillCard
+                icon={<Brain className="w-8 h-8 text-indigo-500" />}
+                title="Machine Learning"
+                skills={["Regression", "Clustering", "Explainable AI", "Feature Engineering", "Scikit-Learn"]}
+                className="h-full"
+              />
+            </div>
+            <div className="md:col-span-3">
+              <SkillCard
+                icon={<Cpu className="w-8 h-8 text-emerald-500" />}
+                title="Deep Learning & NLP"
+                skills={["Transformers", "CNNs", "RAG", "LLMs", "Tf-Idf", "PyTorch", "TensorFlow"]}
+                className="h-full"
+              />
+            </div>
+            <div className="md:col-span-2">
+              <SkillCard
+                icon={<Code className="w-8 h-8 text-blue-500" />}
+                title="Computer Vision"
+                skills={["YOLO", "OCR", "OpenCV", "Object Detection"]}
+                className="h-full"
+              />
+            </div>
+            <div className="md:col-span-2">
+              <SkillCard
+                icon={<Database className="w-8 h-8 text-amber-500" />}
+                title="Data Systems"
+                skills={["MongoDB", "SQL", "FAISS Vector DB", "Pandas", "Tableau"]}
+                className="h-full"
+              />
+            </div>
+            <div className="md:col-span-2">
+              <SkillCard
+                icon={<Layers className="w-8 h-8 text-rose-500" />}
+                title="Engineering"
+                skills={["Node.js", "Docker", "FastAPI", "Microservices", "Git"]}
+                className="h-full"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -204,7 +231,7 @@ function App() {
           </SectionTransition>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <ProjectCard 
+            <ProjectCard
               title="FlipVision"
               category="AI Commerce & Computer Vision"
               problem="Manual product verification and freshness assessment in e-commerce systems are time-consuming and inconsistent."
@@ -213,7 +240,7 @@ function App() {
               tech={["YOLO", "PaddleOCR", "Django", "ResNet50"]}
               link="https://github.com/amaljoshmaadhavj/FlipVision.git"
             />
-            <ProjectCard 
+            <ProjectCard
               title="REVA AI"
               category="Recruitment Automation & Document Intel"
               problem="Traditional recruitment and document verification workflows are slow, fragmented, and prone to tampering."
@@ -222,7 +249,7 @@ function App() {
               tech={["React", "FastAPI", "MongoDB", "DocTR OCR"]}
               link="https://github.com/amaljoshmaadhavj/REVA-AI.git"
             />
-            <ProjectCard 
+            <ProjectCard
               title="TRIAGEON"
               category="Clinical Health Tech"
               problem="Delayed identification of high-risk patients often leads to poor healthcare prioritization and avoidable complications."
@@ -231,7 +258,7 @@ function App() {
               tech={["Python", "React", "Flask", "Scikit-Learn"]}
               link="https://github.com/amaljoshmaadhavj/Triageon.git"
             />
-            <ProjectCard 
+            <ProjectCard
               title="TraceGuard AI"
               category="Cyber Forensics"
               problem="Most forensic investigation systems rely on cloud infrastructure, risking privacy and offline accessibility."
@@ -240,7 +267,7 @@ function App() {
               tech={["Ollama", "FAISS", "Python", "RAG"]}
               link="https://github.com/amaljoshmaadhavj/TraceGuard-AI.git"
             />
-            <ProjectCard 
+            <ProjectCard
               title="MatExtractAI"
               category="Research Automation"
               problem="Scientific research PDFs are difficult to convert into structured and machine-readable datasets."
@@ -249,7 +276,7 @@ function App() {
               tech={["PyMuPDF", "Camelot", "Next.js", "Local LLMs"]}
               link="https://github.com/amaljoshmaadhavj/MatExtractAI.git"
             />
-            <ProjectCard 
+            <ProjectCard
               title="INYA Airlines"
               category="Travel & Booking Systems"
               problem="Lightweight flight booking systems often lack simple APIs for reservation tracking and cancellation workflows."
@@ -262,9 +289,9 @@ function App() {
 
           {/* Explore More Projects Button */}
           <SectionTransition className="mt-20 flex justify-center">
-            <Button 
+            <Button
               onClick={() => setShowMoreProjects(!showMoreProjects)}
-              className="h-14 px-8 rounded-lg font-semibold transition-all hover:translate-y-[-2px] hover:shadow-lg hover:shadow-primary/5 active:scale-[0.98] flex items-center gap-3"
+              className="h-12 md:h-14 px-6 md:px-8 rounded-full font-semibold transition-all hover:translate-y-[-2px] hover:shadow-lg hover:shadow-primary/5 active:scale-[0.98] flex items-center gap-3"
             >
               Explore More Projects
               <ChevronDown className={`w-5 h-5 transition-transform duration-500 ${showMoreProjects ? 'rotate-180' : ''}`} />
@@ -274,7 +301,7 @@ function App() {
           {/* Additional Projects - Expandable Section */}
           <div className={`mt-16 overflow-hidden transition-all duration-700 ${showMoreProjects ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'}`}>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 pt-8">
-              <ProjectCard 
+              <ProjectCard
                 title="InterviewIQ"
                 category="AI Interview & Career Assistance"
                 problem="Candidates lack realistic interview practice environments with detailed performance feedback."
@@ -283,7 +310,7 @@ function App() {
                 tech={["Next.js", "FastAPI", "OpenRouter", "Node.js"]}
                 link="https://github.com/amaljoshmaadhavj/InterviewIQ.git"
               />
-              <ProjectCard 
+              <ProjectCard
                 title="ArthroCare AI"
                 category="AI Clinical Decision Support"
                 problem="Rheumatoid Arthritis is frequently underdiagnosed due to inconsistent symptom interpretation and fragmented analysis."
@@ -299,98 +326,112 @@ function App() {
 
       {/* Experience & Certifications */}
       <section id="experience" className="py-32 px-6 md:px-12 lg:px-24 border-t border-border">
-         <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-               <div className="lg:col-span-12">
-                  <SectionTransition>
-                    <h2 className="text-3xl md:text-4xl font-display font-bold inline-flex items-center gap-4">
-                      <span className="w-12 h-[1px] bg-primary/20"></span>
-                      Experience
-                    </h2>
-                  </SectionTransition>
-               </div>
-               
-               <div className="lg:col-span-8">
-                  <SectionTransition delay={0.1} className="relative pl-12 py-10 border-l border-border hover:border-primary transition-colors duration-500">
-                     <span className="absolute top-10 left-[-4px] w-2 h-2 rounded-full bg-primary" />
-                     <div className="mb-6 flex flex-col md:flex-row md:items-baseline justify-between gap-4">
-                        <div>
-                           <h3 className="text-2xl font-bold font-display uppercase tracking-tight">Artificial Intelligence Trainee</h3>
-                           <p className="text-primary font-medium mt-1 uppercase tracking-widest text-sm">KaviiTamil Solutions</p>
-                        </div>
-                        <p className="text-muted-foreground font-medium uppercase text-xs tracking-[0.2em] bg-muted px-4 py-2 border border-border">July 2024 – August 2024</p>
-                     </div>
-                     <ul className="space-y-4 text-muted-foreground leading-relaxed">
-                        <li className="flex gap-4">
-                           <span className="text-primary opacity-50 font-bold tracking-tighter shrink-0">//</span>
-                           Developed supervised and unsupervised ML models using Scikit-Learn on real-world datasets for predictive performance.
-                        </li>
-                        <li className="flex gap-4">
-                           <span className="text-primary opacity-50 font-bold tracking-tighter shrink-0">//</span>
-                           Implemented modular machine learning workflows from data preprocessing to feature engineering and validation.
-                        </li>
-                        <li className="flex gap-4">
-                           <span className="text-primary opacity-50 font-bold tracking-tighter shrink-0">//</span>
-                           Optimized predictive performance using practical evaluation techniques and data leakage prevention strategies.
-                        </li>
-                     </ul>
-                  </SectionTransition>
-               </div>
-               
-               <div className="lg:col-span-4 space-y-8">
-                  <SectionTransition delay={0.3}>
-                     <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-primary/60 mb-8 border-b border-border pb-4">Key Certifications</h3>
-                     <div className="space-y-4">
-                        <CertItem title="Data Science Bootcamp" issuer="Udemy" />
-                        <CertItem title="Machine Learning Beginner" issuer="Infosys Springboard" />
-                        <CertItem title="CUDA at Scale" issuer="Johns Hopkins" />
-                        <CertItem title="PyTorch Foundations" issuer="Packt" />
-                        <CertItem title="Student Automation Dev" issuer="UiPath" />
-                     </div>
-                  </SectionTransition>
-               </div>
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            <div className="lg:col-span-12">
+              <SectionTransition>
+                <h2 className="text-3xl md:text-4xl font-display font-bold inline-flex items-center gap-4">
+                  <span className="w-12 h-[1px] bg-primary/20"></span>
+                  Experience
+                </h2>
+              </SectionTransition>
             </div>
-         </div>
+
+            <div className="lg:col-span-8">
+              <SectionTransition delay={0.1} className="relative pl-12 py-10 border-l border-border hover:border-primary transition-colors duration-500">
+                <span className="absolute top-10 left-[-4px] w-2 h-2 rounded-full bg-primary" />
+                <div className="mb-6 flex flex-col md:flex-row md:items-baseline justify-between gap-4">
+                  <div>
+                    <h3 className="text-2xl font-bold font-display uppercase tracking-tight">Artificial Intelligence Trainee</h3>
+                    <p className="text-primary font-medium mt-1 uppercase tracking-widest text-sm">KaviiTamil Solutions</p>
+                  </div>
+                  <p className="text-muted-foreground font-medium uppercase text-xs tracking-[0.2em] bg-muted px-4 py-2 border border-border">July 2024 – August 2024</p>
+                </div>
+                <ul className="space-y-4 text-muted-foreground leading-relaxed">
+                  <li className="flex gap-4">
+                    <span className="text-primary opacity-50 font-bold tracking-tighter shrink-0">//</span>
+                    Developed supervised and unsupervised ML models using Scikit-Learn on real-world datasets for predictive performance.
+                  </li>
+                  <li className="flex gap-4">
+                    <span className="text-primary opacity-50 font-bold tracking-tighter shrink-0">//</span>
+                    Implemented modular machine learning workflows from data preprocessing to feature engineering and validation.
+                  </li>
+                  <li className="flex gap-4">
+                    <span className="text-primary opacity-50 font-bold tracking-tighter shrink-0">//</span>
+                    Optimized predictive performance using practical evaluation techniques and data leakage prevention strategies.
+                  </li>
+                </ul>
+              </SectionTransition>
+            </div>
+
+            <div className="lg:col-span-4 space-y-8">
+              <SectionTransition delay={0.3}>
+                <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-primary/60 mb-8 border-b border-border pb-4">Key Certifications</h3>
+                <div className="space-y-4">
+                  <CertItem title="Data Science Bootcamp" issuer="Udemy" />
+                  <CertItem title="Machine Learning Beginner" issuer="Infosys Springboard" />
+                  <CertItem title="CUDA at Scale" issuer="Johns Hopkins" />
+                  <CertItem title="PyTorch Foundations" issuer="Packt" />
+                  <CertItem title="Student Automation Dev" issuer="UiPath" />
+                </div>
+              </SectionTransition>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Footer / Connect */}
-      <footer id="contact" className="py-24 px-6 md:px-12 lg:px-24 border-t border-border bg-foreground text-background">
-        <div className="max-w-7xl mx-auto flex flex-col items-start gap-16">
-          <SectionTransition>
-            <h2 className="text-4xl md:text-6xl font-display font-bold tracking-tighter leading-none mb-4">
-              Designing the future <br />
-              of practical AI<span className="text-white opacity-20">.</span>
+      <footer id="contact" className="py-32 px-6 md:px-12 lg:px-24 bg-[#000000] border-t border-white/10 relative overflow-hidden">
+        {/* Decorative Background Glow */}
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-primary/20 blur-[120px] rounded-full -z-10 opacity-30" />
+
+        <div className="max-w-7xl mx-auto flex flex-col items-start gap-24">
+          <SectionTransition className="w-full">
+            <h2 className="text-5xl md:text-8xl lg:text-9xl font-display font-bold tracking-tighter leading-[0.9] mb-12 text-white">
+              LET'S BUILD THE <br />
+              FUTURE OF AI<span className="text-primary">.</span>
             </h2>
-            <p className="text-lg text-white/60 font-light max-w-xl">
-              Open to collaborations on research-focused AI products and scalable ML systems.
+            <p style={{ color: '#a2a2a2ff' }} className="text-xl md:text-2xl font-normal max-w-2xl leading-relaxed">
+              Currently open to collaborations on research-driven AI products and scalable machine learning ecosystems.
             </p>
           </SectionTransition>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 w-full">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 w-full pt-16 border-t border-white/10">
             <div className="space-y-6">
-               <h4 className="text-xs uppercase tracking-[0.3em] text-white/30 font-bold">Contact</h4>
-               <a href="mailto:amal018josephmathi@gmail.com" className="block text-xl md:text-2xl font-display hover:text-white/70 transition-colors">
-                  amal018josephmathi@gmail.com
-               </a>
+              <h4 className="text-[10px] uppercase tracking-[0.4em] text-white font-bold">Contact</h4>
+              <a
+                href="mailto:amal018josephmathi@gmail.com"
+                className="group block text-base md:text-lg font-display font-bold text-white hover:text-primary transition-all duration-500 relative w-fit"
+              >
+                amal018josephmathi@gmail.com
+                <span className="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-primary transition-all duration-500 group-hover:w-full" />
+              </a>
             </div>
             <div className="space-y-6">
-               <h4 className="text-xs uppercase tracking-[0.3em] text-white/30 font-bold">Location</h4>
-               <p className="text-xl md:text-2xl font-display">Saveetha Engineering College, Tamil Nadu, India</p>
+              <h4 className="text-[10px] uppercase tracking-[0.4em] text-white font-bold">Location</h4>
+              <p className="text-base md:text-lg font-display font-bold text-white leading-tight">Chennai, India</p>
             </div>
             <div className="space-y-6">
-               <h4 className="text-xs uppercase tracking-[0.3em] text-white/30 font-bold">Social</h4>
-               <div className="flex gap-8">
-                  <a href="https://github.com/amaljoshmaadhavj" target="_blank" className="text-white/60 hover:text-white transition-colors">GitHub</a>
-                  <a href="https://www.linkedin.com/in/amaljoshmaadhavj/" target="_blank" className="text-white/60 hover:text-white transition-colors">LinkedIn</a>
-               </div>
+              <h4 className="text-[10px] uppercase tracking-[0.4em] text-white font-bold">Social Architecture</h4>
+              <div className="flex flex-wrap gap-8">
+                <a href="https://github.com/amaljoshmaadhavj" target="_blank" className="text-sm font-bold text-white hover:text-primary transition-colors flex items-center gap-2 group">
+                  <Github className="w-4 h-4 opacity-70 group-hover:opacity-100 text-white" />
+                  <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/amaljoshmaadhavj/" target="_blank" className="text-base font-bold text-white hover:text-primary transition-colors flex items-center gap-2 group">
+                  <Linkedin className="w-4 h-4 opacity-70 group-hover:opacity-100 text-white" />
+                  <span>LinkedIn</span>
+                </a>
+              </div>
             </div>
           </div>
-          
-          <div className="w-full h-[1px] bg-white/10 mt-16" />
-          
-          <div className="w-full flex justify-between items-center opacity-40 text-xs uppercase tracking-widest font-bold">
+
+          <div className="w-full pt-16 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] uppercase tracking-[0.4em] font-black text-white">
             <p>© {new Date().getFullYear()} Amaljosh Maadhav J</p>
-            <p className="hidden md:block">Engineered with Precision</p>
+            <div className="flex items-center gap-4 text-white">
+              <span className="w-8 h-[1px] bg-white"></span>
+              <p>Engineered with Precision & AI</p>
+            </div>
           </div>
         </div>
       </footer>
@@ -398,56 +439,148 @@ function App() {
   );
 }
 
-function SkillCard({ icon, title, skills }: { icon: React.ReactNode, title: string, skills: string[] }) {
+function SkillCard({ icon, title, skills, className }: { icon: React.ReactNode, title: string, skills: string[], className?: string }) {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  // Apply springs to the tilt values for buttery smooth interaction
+  const mouseXSpring = useSpring(x, { damping: 25, stiffness: 150 });
+  const mouseYSpring = useSpring(y, { damping: 25, stiffness: 150 });
+
+  const rotateX = useTransform(mouseYSpring, [-100, 100], [10, -10]);
+  const rotateY = useTransform(mouseXSpring, [-100, 100], [-10, 10]);
+
+  function handleMouseMove(event: React.MouseEvent<HTMLDivElement>) {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    x.set(event.clientX - centerX);
+    y.set(event.clientY - centerY);
+  }
+
+  function handleMouseLeave() {
+    x.set(0);
+    y.set(0);
+  }
+
   return (
-    <div className="group p-10 bg-white hover:bg-muted/30 transition-all duration-500 relative overflow-hidden">
-      <div className="mb-8 opacity-40 group-hover:opacity-100 group-hover:text-primary transition-all group-hover:translate-x-1 duration-500">{icon}</div>
-      <h3 className="text-xl font-bold font-display uppercase tracking-tight mb-4">{title}</h3>
-      <div className="flex flex-wrap gap-x-4 gap-y-2">
-        {skills.map((skill, i) => (
-          <span key={i} className="text-sm text-muted-foreground font-medium">{skill}</span>
-        ))}
+    <motion.div
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      animate={{
+        rotateX: [0, 15, 0],
+        boxShadow: [
+          "0 5px 15px rgba(0,0,0,0.1)",
+          "0 25px 45px rgba(0,0,0,0.15)",
+          "0 5px 15px rgba(0,0,0,0.1)"
+        ]
+      }}
+      transition={{
+        duration: 3.5 + Math.random() * 1.5,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }}
+      style={{
+        rotateX: rotateX,
+        rotateY: rotateY,
+        transformStyle: "preserve-3d",
+        transformOrigin: "top center"
+      }}
+      className={cn(
+        "group sticky-note p-8 md:p-10 bg-[#FEF9C3] border-b-2 border-r-2 border-yellow-200/50 shadow-md transition-all duration-500 relative overflow-hidden",
+        className
+      )}
+    >
+      {/* Digital Scotch Tape Effect */}
+      <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-16 h-8 bg-white/40 backdrop-blur-md border border-white/20 rounded-sm rotate-1 shadow-sm z-20" />
+
+      <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+        {icon}
       </div>
-      <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-700" />
-    </div>
+
+      <div style={{ transform: "translateZ(30px)" }} className="relative z-10">
+        <div className="mb-6 p-3 bg-white/40 rounded-2xl w-fit group-hover:bg-primary/10 group-hover:text-primary transition-colors duration-500">
+          {icon}
+        </div>
+        <h3 className="text-2xl font-bold font-display uppercase tracking-tight mb-6 text-yellow-900">{title}</h3>
+        <div className="flex flex-wrap gap-2">
+          {skills.map((skill, i) => (
+            <motion.span
+              key={i}
+              whileHover={{ scale: 1.05, y: -2 }}
+              className="text-xs px-4 py-2 bg-white/60 rounded-md text-yellow-800 font-semibold border border-yellow-200/50 hover:bg-white hover:text-primary transition-all cursor-default shadow-sm"
+            >
+              {skill}
+            </motion.span>
+          ))}
+        </div>
+      </div>
+
+      {/* Decorative Shadow for paper feel */}
+      <div className="absolute bottom-0 right-0 w-full h-full bg-gradient-to-br from-transparent via-transparent to-black/5 pointer-events-none" />
+    </motion.div>
   );
 }
 
 function ProjectCard({ title, category, problem, solution, impact, tech, link }: { title: string, category: string, problem: string, solution: string, impact: string, tech: string[], link: string }) {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const rotateX = useTransform(y, [-300, 300], [5, -5]);
+  const rotateY = useTransform(x, [-300, 300], [-5, 5]);
+
+  function handleMouseMove(event: React.MouseEvent<HTMLDivElement>) {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    x.set(event.clientX - centerX);
+    y.set(event.clientY - centerY);
+  }
+
+  function handleMouseLeave() {
+    x.set(0);
+    y.set(0);
+  }
+
   return (
     <SectionTransition>
-    <Card className="rounded-xl border border-border bg-white shadow-none transition-all duration-500 hover:translate-y-[-4px] hover:shadow-2xl hover:shadow-primary/5 flex flex-col h-full overflow-hidden">
-      <CardHeader className="space-y-2 p-10 pb-6 border-b border-border/50">
-        <div className="flex items-center justify-between">
-           <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary/50">{category}</span>
-           <div className="flex gap-3">
-             <a href={link} target="_blank" className="p-2 border border-border rounded-lg text-muted-foreground hover:bg-muted hover:text-primary transition-all">
-               <Github className="w-4 h-4" />
-             </a>
-             <a href={link} target="_blank" className="p-2 border border-border rounded-lg text-muted-foreground hover:bg-muted hover:text-primary transition-all">
-               <ExternalLink className="w-4 h-4" />
-             </a>
-           </div>
-        </div>
-        <CardTitle className="text-4xl font-display font-bold tracking-tighter">{title}</CardTitle>
-      </CardHeader>
-      
-      <CardContent className="p-10 space-y-10 flex-grow">
-        <div className="space-y-8">
-          <ProjectStep label="Problem" content={problem} />
-          <ProjectStep label="Solution" content={solution} />
-          <ProjectStep label="Impact" content={impact} highlighted />
-        </div>
-        
-        <div className="flex flex-wrap gap-2 pt-6 border-t border-border/50">
-          {tech.map((t, i) => (
-            <Badge key={i} variant="secondary" className="bg-muted/50 text-muted-foreground font-medium rounded-md px-3 py-1 text-xs">
-              {t}
-            </Badge>
-          ))}
-        </div>
-      </CardContent>
-    </Card>
+      <motion.div
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+      >
+        <Card className="rounded-[2rem] border border-border bg-white shadow-none transition-all duration-500 hover:translate-y-[-4px] hover:shadow-2xl hover:shadow-primary/5 flex flex-col h-full overflow-hidden">
+          <CardHeader style={{ transform: "translateZ(20px)" }} className="space-y-2 p-6 md:p-10 pb-6 border-b border-border/50">
+            <div className="flex items-center justify-between">
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary/50">{category}</span>
+              <div className="flex gap-3">
+                <a href={link} target="_blank" className="p-2 border border-border rounded-xl text-muted-foreground hover:bg-muted hover:text-primary transition-all">
+                  <Github className="w-4 h-4" />
+                </a>
+                <a href={link} target="_blank" className="p-2 border border-border rounded-xl text-muted-foreground hover:bg-muted hover:text-primary transition-all">
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+            <CardTitle className="text-4xl font-display font-bold tracking-tighter">{title}</CardTitle>
+          </CardHeader>
+
+          <CardContent style={{ transform: "translateZ(10px)" }} className="p-6 md:p-10 space-y-10 flex-grow">
+            <div className="space-y-8">
+              <ProjectStep label="Problem" content={problem} />
+              <ProjectStep label="Solution" content={solution} />
+              <ProjectStep label="Impact" content={impact} highlighted />
+            </div>
+
+            <div className="flex flex-wrap gap-2 pt-6 border-t border-border/50">
+              {tech.map((t, i) => (
+                <Badge key={i} variant="secondary" className="bg-muted/50 text-muted-foreground font-medium rounded-full px-3 py-1 text-xs">
+                  {t}
+                </Badge>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
     </SectionTransition>
   );
 }
@@ -466,15 +599,15 @@ function ProjectStep({ label, content, highlighted = false }: { label: string, c
 }
 
 function CertItem({ title, issuer }: { title: string, issuer: string }) {
-   return (
-      <div className="flex items-center justify-between group p-2 rounded-lg transition-colors hover:bg-muted/50 cursor-default">
-         <div className="flex items-center gap-4">
-            <CheckCircle2 className="w-4 h-4 text-primary opacity-30 group-hover:opacity-100 transition-opacity" />
-            <span className="text-sm font-medium">{title}</span>
-         </div>
-         <span className="text-[10px] font-bold uppercase opacity-30 group-hover:opacity-100 tracking-tighter">{issuer}</span>
+  return (
+    <div className="flex items-center justify-between group p-2 rounded-xl transition-colors hover:bg-muted/50 cursor-default">
+      <div className="flex items-center gap-4">
+        <CheckCircle2 className="w-4 h-4 text-primary opacity-30 group-hover:opacity-100 transition-opacity" />
+        <span className="text-sm font-medium">{title}</span>
       </div>
-   );
+      <span className="text-[10px] font-bold uppercase opacity-30 group-hover:opacity-100 tracking-tighter">{issuer}</span>
+    </div>
+  );
 }
 
 export default App;

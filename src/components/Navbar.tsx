@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
+import { Menu, X, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 export const Navbar = () => {
@@ -10,6 +11,8 @@ export const Navbar = () => {
     damping: 30,
     restDelta: 0.001
   });
+
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,16 +34,17 @@ export const Navbar = () => {
   return (
     <nav 
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 font-display",
-        isScrolled ? "py-4 glass border-b shadow-sm" : "py-8 bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 font-display bg-white border-b border-border/10",
+        isScrolled ? "py-4 shadow-sm" : "py-6"
       )}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
         <a href="#home" className="text-xl font-bold tracking-tighter uppercase group flex items-center gap-2">
-          <span className="w-6 h-6 bg-primary flex items-center justify-center text-[10px] text-primary-foreground font-black group-hover:rotate-90 transition-transform duration-500">A</span>
-          AJM<span className="text-primary opacity-30">.</span>
+          <span className="w-6 h-6 bg-primary rounded-lg flex items-center justify-center text-[10px] text-primary-foreground font-black group-hover:rotate-90 transition-transform duration-500">A</span>
+          AJM <span className="text-primary">/&gt;</span>
         </a>
 
+        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <a 
@@ -54,7 +58,7 @@ export const Navbar = () => {
           ))}
           <a 
             href="mailto:amal018josephmathi@gmail.com"
-            className="text-xs uppercase tracking-[0.2em] font-bold px-6 py-2 border border-border hover:bg-foreground hover:text-background transition-all duration-300"
+            className="text-xs uppercase tracking-[0.2em] font-bold px-8 h-10 flex items-center border border-border rounded-full hover:bg-foreground hover:text-background transition-all duration-300"
           >
             Connect
           </a>
@@ -62,7 +66,51 @@ export const Navbar = () => {
           {/* Resume dropdown: View / Download */}
           <ResumeDropdown />
         </div>
+
+        {/* Mobile Menu Toggle */}
+        <button 
+          className="md:hidden p-2 text-foreground hover:text-primary transition-colors"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle Menu"
+        >
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
+      
+      {/* Mobile Navigation Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden glass border-b overflow-hidden"
+          >
+            <div className="flex flex-col p-6 gap-4">
+              {navLinks.map((link) => (
+                <a 
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="flex items-center justify-between py-4 text-sm font-bold uppercase tracking-widest text-muted-foreground hover:text-primary border-b border-border/50 last:border-0"
+                >
+                  {link.name}
+                  <ChevronRight size={16} />
+                </a>
+              ))}
+              <div className="flex flex-col gap-4 pt-4">
+                <a 
+                  href="mailto:amal018josephmathi@gmail.com"
+                  className="w-full text-center text-xs uppercase tracking-[0.2em] font-bold px-6 py-4 border border-border hover:bg-foreground hover:text-background transition-all"
+                >
+                  Connect
+                </a>
+                <ResumeDropdown isMobile />
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       
       {/* Scroll Progress Bar */}
       <motion.div 
@@ -73,7 +121,7 @@ export const Navbar = () => {
   );
 };
 
-const ResumeDropdown = () => {
+const ResumeDropdown = ({ isMobile = false }: { isMobile?: boolean }) => {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
   const filePath = '/resume/Amaljosh%20Maadhav%20J%20Resume.pdf';
@@ -90,11 +138,14 @@ const ResumeDropdown = () => {
   }, []);
 
   return (
-    <div className="relative" ref={ref}>
+    <div className={cn("relative", isMobile ? "w-full" : "")} ref={ref}>
       <button
         type="button"
         onClick={() => setOpen((s) => !s)}
-        className="bg-primary text-background text-xs uppercase tracking-[0.2em] font-bold px-6 py-2 rounded-md shadow-md hover:opacity-95 transition-all duration-200 flex items-center gap-2"
+        className={cn(
+          "bg-primary text-background text-xs uppercase tracking-[0.2em] font-bold px-8 h-10 rounded-full shadow-md hover:opacity-95 transition-all duration-200 flex items-center justify-center gap-2",
+          isMobile ? "w-full h-14" : ""
+        )}
         aria-expanded={open}
         aria-haspopup="menu"
       >
@@ -105,19 +156,22 @@ const ResumeDropdown = () => {
       </button>
 
       {open && (
-        <div className="absolute right-0 mt-2 w-44 bg-background border border-border rounded-md shadow-lg z-50 overflow-hidden">
+        <div className={cn(
+          "absolute right-0 mt-2 bg-background border border-border rounded-2xl shadow-lg z-50 overflow-hidden",
+          isMobile ? "relative mt-0 w-full shadow-none border-t-0 rounded-t-none" : "w-44"
+        )}>
           <a
             href={filePath}
             target="_blank"
             rel="noopener noreferrer"
-            className="block px-4 py-2 text-sm text-muted-foreground hover:bg-muted-foreground/5"
+            className="block px-4 py-3 text-sm text-muted-foreground hover:bg-muted-foreground/5"
           >
             View
           </a>
           <a
             href={filePath}
             download={downloadName}
-            className="block px-4 py-2 text-sm text-muted-foreground hover:bg-muted-foreground/5"
+            className="block px-4 py-3 text-sm text-muted-foreground hover:bg-muted-foreground/5"
           >
             Download
           </a>

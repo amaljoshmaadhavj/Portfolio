@@ -73,7 +73,6 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
-    cursor: none; /* Hide default cursor to use custom cursor */
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -91,8 +90,51 @@
   @apply bg-background/70 backdrop-blur-md border border-border;
 }
 
+/* Word-level hover effect */
+.word-span {
+  display: inline-block;
+  transition: color 0.3s ease, transform 0.2s ease;
+  cursor: default;
+  color: inherit; /* Respect parent text color */
+}
+
+.word-span:hover {
+  color: var(--word-hover-color, #3b82f6);
+  transform: translateY(-2px);
+}
+
+/* Eliminate sharp edges globally */
+*, *::before, *::after {
+  border-radius: inherit;
+}
+
+html, body {
+  border-radius: 0; /* Reset for root */
+}
+
+.card, .glass-card, [class*="card"]:not(.sticky-note), .group:not(.sticky-note), section > div {
+  border-radius: 1.5rem !important;
+}
+
+.sticky-note {
+  border-radius: 0 !important;
+}
+
+button, a.button, .btn, [role="button"], input, textarea, select {
+  border-radius: 9999px !important; /* Pills for interactive elements */
+}
+
+img, video, canvas, iframe {
+  border-radius: 1.5rem !important;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* Hide system pointer globally when custom cursor is active */
+body[style*="cursor: none"] * {
+  cursor: none !important;
 }
