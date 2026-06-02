@@ -62,7 +62,7 @@ const TimelineItem = ({ year, type, title, subtitle, description, isLeft, progre
             <span className="text-primary font-display font-bold uppercase text-xs tracking-widest opacity-80 bg-primary/5 px-3 py-1 rounded-full border border-primary/10">
               {type}
             </span>
-            <span className="md:hidden text-lg font-bold text-foreground/40 hover:text-black transition-colors">
+            <span className="md:hidden text-lg font-bold text-foreground/40 hover:text-foreground transition-colors">
               <YearCounter targetYear={targetYear} />
             </span>
           </div>
@@ -84,7 +84,7 @@ const TimelineItem = ({ year, type, title, subtitle, description, isLeft, progre
             borderColor: active ? "var(--primary)" : "rgb(226, 232, 240)",
             scale: active ? 1.1 : 1
           }}
-          className="w-10 h-10 rounded-full bg-white border border-border flex items-center justify-center z-10 shadow-lg transition-all duration-500 relative"
+          className="w-10 h-10 rounded-full bg-background border border-border flex items-center justify-center z-10 shadow-lg transition-all duration-500 relative"
         >
            {/* Primary Glow Ring */}
            <AnimatePresence>
@@ -112,7 +112,7 @@ const TimelineItem = ({ year, type, title, subtitle, description, isLeft, progre
       {/* Year Side */}
       <div className="hidden md:flex md:w-[45%]">
         <SectionTransition delay={0.2} className={`flex w-full ${isLeft ? 'md:justify-start' : 'md:justify-end'}`}>
-          <span className="text-5xl md:text-7xl lg:text-9xl font-display font-extrabold text-[#0F172A]/[0.12] tracking-normal hover:text-black transition-all duration-500 select-none">
+          <span className="text-5xl md:text-7xl lg:text-9xl font-display font-extrabold text-foreground/[0.08] tracking-normal hover:text-foreground/20 transition-all duration-500 select-none">
             <YearCounter targetYear={targetYear} />
           </span>
         </SectionTransition>

@@ -36,33 +36,33 @@
   }
 
   .dark {
-    --background: 222 47% 11%;
-    --foreground: 0 0% 98%;
+    --background: 220 20% 7%;       /* #0d1117 — deep dark */
+    --foreground: 210 20% 92%;      /* #e2e8f0 */
 
-    --card: 222 47% 11%;
-    --card-foreground: 0 0% 98%;
+    --card: 220 18% 11%;            /* #141b24 */
+    --card-foreground: 210 20% 92%;
 
-    --popover: 222 47% 11%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 220 18% 11%;
+    --popover-foreground: 210 20% 92%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 222 47% 11%;
+    --primary: 160 84% 39%;         /* #10b981 emerald — accent in dark */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 217 19% 27%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 220 15% 17%;       /* #1e2530 */
+    --secondary-foreground: 210 20% 85%;
 
-    --muted: 217 19% 27%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 220 15% 17%;
+    --muted-foreground: 215 18% 55%; /* #7a8a9e */
 
-    --accent: 0 0% 98%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 217 19% 27%;
-    --input: 217 19% 27%;
-    --ring: 215 20% 65%;
+    --border: 220 15% 20%;          /* #242d3a */
+    --input: 220 15% 20%;
+    --ring: 160 84% 39%;
   }
 }
 
@@ -81,9 +81,15 @@
 }
 
 .bg-subtle-mesh {
-  background-color: var(--background);
-  background-image: radial-gradient(at 0% 0%, hsla(215,16%,47%,0.03) 0, transparent 50%), 
-                    radial-gradient(at 50% 0%, hsla(215,16%,47%,0.02) 0, transparent 50%);
+  background-color: hsl(var(--background));
+  background-image: radial-gradient(at 0% 0%, hsla(215,16%,47%,0.04) 0, transparent 50%), 
+                    radial-gradient(at 50% 0%, hsla(215,16%,47%,0.03) 0, transparent 50%);
+}
+
+.dark .bg-subtle-mesh {
+  background-color: hsl(var(--background));
+  background-image: radial-gradient(at 0% 0%, hsla(160,84%,39%,0.05) 0, transparent 50%), 
+                    radial-gradient(at 50% 0%, hsla(200,80%,39%,0.03) 0, transparent 50%);
 }
 
 .glass {

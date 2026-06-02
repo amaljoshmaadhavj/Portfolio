@@ -10,7 +10,7 @@ export const StatusIndicator = ({ className }: { className?: string }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={cn(
-        "inline-flex items-center bg-white border border-border rounded-full shadow-sm transition-all cursor-default overflow-hidden h-7",
+        "inline-flex items-center bg-background border border-border rounded-full shadow-sm transition-all cursor-default overflow-hidden h-7",
         isHovered ? "px-4 gap-3 border-emerald-500/30" : "px-[9px] gap-0",
         className
       )}
@@ -27,7 +27,7 @@ export const StatusIndicator = ({ className }: { className?: string }) => {
             animate={{ width: "auto", opacity: 1, x: 0 }}
             exit={{ width: 0, opacity: 0, x: -10 }}
             transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-            className="text-[10px] uppercase font-black tracking-[0.3em] text-emerald-900 whitespace-nowrap"
+            className="text-[10px] uppercase font-black tracking-[0.3em] text-emerald-700 dark:text-emerald-400 whitespace-nowrap"
           >
             Available for Collaboration
           </motion.span>
