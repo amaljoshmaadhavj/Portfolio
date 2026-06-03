@@ -158,7 +158,7 @@ function App() {
         <div className="absolute top-20 right-0 w-64 h-64 md:w-[500px] md:h-[500px] bg-primary/5 blur-[80px] md:blur-[120px] rounded-full z-0 pointer-events-none" />
       </section>
 
-      <section id="about" className="relative py-36 px-6 md:px-12 lg:px-24 border-b border-border overflow-hidden text-white bg-black">
+      <section id="about" className="relative min-h-screen flex flex-col justify-center py-16 px-6 md:px-12 lg:px-24 border-b border-border overflow-hidden text-white bg-black">
 
         {/* DotGrid Background Layer */}
         <div className="absolute inset-0 -z-10 opacity-60 pointer-events-none">
@@ -186,14 +186,14 @@ function App() {
 
           {/* Redesigned Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-            
+
             {/* Left Box: Futuristic Interactive Terminal Shell (8 cols) */}
             <div className="lg:col-span-8 flex">
-              <SectionTransition delay={0.1} className="w-full flex">
+              <SectionTransition delay={0.1} className="w-full flex" innerClassName="w-full flex">
                 <div className="relative w-full rounded-2xl border border-white/10 bg-black backdrop-blur-md p-6 md:p-8 flex flex-col justify-between hover:border-emerald-500/30 transition-all duration-500 group shadow-2xl shadow-emerald-950/10">
                   {/* Decorative Glass Reflection / Glowing Dot */}
                   <div className="absolute -top-[1px] left-10 right-10 h-[1px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent" />
-                  
+
                   {/* Terminal Header */}
                   <div className="flex items-center justify-between pb-6 mb-6 border-b border-white/5">
                     <div className="flex items-center gap-2">
@@ -232,12 +232,12 @@ function App() {
 
             {/* Right Box: Glowing Tech Grid Cards (4 cols) */}
             <div className="lg:col-span-4 flex flex-col gap-6">
-              
+
               {/* Focus Card */}
-              <SectionTransition delay={0.2} className="flex-1 flex">
+              <SectionTransition delay={0.2} className="flex-1 flex" innerClassName="w-full flex">
                 <div className="relative w-full rounded-2xl border border-white/10 bg-black backdrop-blur-md p-6 flex flex-col justify-between hover:border-emerald-500/30 transition-all duration-500 group shadow-lg">
                   <div className="absolute -top-[1px] left-6 right-6 h-[1px] bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent" />
-                  
+
                   <div>
                     <h3 className="font-display font-bold uppercase text-xs tracking-[0.3em] text-cyan-400 mb-4 inline-flex items-center gap-2">
                       <Brain className="w-4 h-4 text-cyan-400" />
@@ -262,10 +262,10 @@ function App() {
               </SectionTransition>
 
               {/* Interests Card */}
-              <SectionTransition delay={0.3} className="flex-1 flex">
+              <SectionTransition delay={0.3} className="flex-1 flex" innerClassName="w-full flex">
                 <div className="relative w-full rounded-2xl border border-white/10 bg-black backdrop-blur-md p-6 flex flex-col justify-between hover:border-emerald-500/30 transition-all duration-500 group shadow-lg">
                   <div className="absolute -top-[1px] left-6 right-6 h-[1px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent" />
-                  
+
                   <div>
                     <h3 className="font-display font-bold uppercase text-xs tracking-[0.3em] text-emerald-400 mb-4 inline-flex items-center gap-2">
                       <Cpu className="w-4 h-4 text-emerald-400" />
@@ -296,11 +296,11 @@ function App() {
       </section>
 
       {/* Journey Section */}
-      <section id="journey" className="py-32 px-6 md:px-12 lg:px-24 bg-background border-b border-border">
+      <section id="journey" className="py-16 px-6 md:px-12 lg:px-24 bg-background border-b border-border">
         <div className="max-w-7xl mx-auto">
-          <SectionTransition className="mb-20">
-            <h2 className="text-3xl md:text-4xl font-display font-bold inline-flex items-center gap-4">
-              <span className="w-12 h-[1px] bg-primary/20"></span>
+          <SectionTransition className="mb-10">
+            <h2 className="text-4xl md:text-5xl font-display font-black tracking-tight mb-4 inline-flex items-center gap-4 uppercase">
+              <span className="w-16 h-[2px] bg-primary/40"></span>
               My Journey
             </h2>
           </SectionTransition>
@@ -309,7 +309,7 @@ function App() {
         </div>
       </section>
 
-      <section id="skills" className="relative py-32 px-6 md:px-12 lg:px-24 scroll-mt-32 border-b border-border overflow-hidden text-white bg-black">
+      <section id="skills" className="relative pt-12 pb-16 px-6 md:px-12 lg:px-24 border-b border-border overflow-hidden text-white bg-black">
 
         {/* DotGrid Background Layer */}
         <div className="absolute inset-0 -z-10 opacity-60 pointer-events-none">
@@ -326,11 +326,12 @@ function App() {
         </div>
 
         <div className="max-w-7xl mx-auto">
-          <SectionTransition className="mb-20">
-            <h2 className="text-3xl md:text-4xl font-display font-bold inline-flex items-center gap-4 text-white">
-              <span className="w-12 h-[1px] bg-white/20"></span>
+          <SectionTransition className="mb-10">
+            <h2 className="text-4xl md:text-5xl font-display font-black tracking-tight mb-4 inline-flex items-center gap-4 text-white uppercase">
+              <span className="w-16 h-[2px] bg-gradient-to-r from-emerald-500 to-cyan-500"></span>
               Technical Arsenal
             </h2>
+            <p className="text-white/40 uppercase tracking-[0.2em] text-xs">02 // CORE COMPETENCIES</p>
           </SectionTransition>
 
           <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
@@ -379,19 +380,17 @@ function App() {
       </section>
 
       {/* Projects Section - Problem -> Solution -> Impact */}
-      <section id="projects" className="py-32 px-6 md:px-12 lg:px-24 bg-background">
+      <section id="projects" className="pt-12 pb-16 px-6 md:px-12 lg:px-24 bg-background">
         <div className="max-w-7xl mx-auto">
-          <SectionTransition className="mb-20">
-            <h2 className="text-3xl md:text-4xl font-display font-bold inline-flex items-center gap-4">
-              <span className="w-12 h-[1px] bg-primary/20"></span>
+          <SectionTransition className="mb-10">
+            <h2 className="text-4xl md:text-5xl font-display font-black tracking-tight mb-4 inline-flex items-center gap-4 uppercase">
+              <span className="w-16 h-[2px] bg-primary/40"></span>
               The Solutions
             </h2>
-            <p className="mt-4 text-muted-foreground font-light whitespace-nowrap">
-              A selection of engineering projects focused on real-world impact and technical depth.
-            </p>
+            <p className="text-muted-foreground uppercase tracking-[0.2em] text-xs">// ENGINEERING PROJECTS</p>
           </SectionTransition>
 
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col">
             <ProjectRow
               index={0}
               title="FlipVision"
@@ -543,7 +542,7 @@ function App() {
       </section>
 
       {/* Experience & Certifications */}
-      <section id="experience" className="relative py-32 px-6 md:px-12 lg:px-24 bg-black overflow-hidden">
+      <section id="experience" className="relative pt-24 pb-16 px-6 md:px-12 lg:px-24 bg-black overflow-hidden">
         {/* Subtle grid background */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{
           backgroundImage: 'linear-gradient(#10b981 1px, transparent 1px), linear-gradient(90deg, #10b981 1px, transparent 1px)',
@@ -554,9 +553,9 @@ function App() {
 
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <SectionTransition className="mb-20">
-            <p className="text-emerald-400 font-mono text-xs uppercase tracking-[0.4em] mb-3">// 04 PROFESSIONAL RECORD</p>
-            <h2 className="text-4xl md:text-5xl font-display font-black tracking-tight text-white inline-flex items-center gap-4">
+          <SectionTransition className="mb-10">
+            <p className="text-emerald-400 font-mono text-xs uppercase tracking-[0.4em] mb-4">// 04 PROFESSIONAL RECORD</p>
+            <h2 className="text-4xl md:text-5xl font-display font-black tracking-tight text-white inline-flex items-center gap-4 uppercase">
               <span className="w-16 h-[2px] bg-gradient-to-r from-emerald-500 to-cyan-500" />
               Experience
             </h2>
@@ -633,12 +632,11 @@ function App() {
                     <SectionTransition key={cert.title} delay={0.25 + i * 0.06}>
                       <div className="group flex items-center justify-between p-4 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/[0.12] transition-all duration-300 cursor-default">
                         <div className="flex items-center gap-3">
-                          <span className={`w-1.5 h-1.5 rounded-full bg-${
-                            cert.color === 'emerald' ? 'emerald-400' :
-                            cert.color === 'cyan' ? 'cyan-400' :
-                            cert.color === 'violet' ? 'violet-400' :
-                            cert.color === 'orange' ? 'orange-400' : 'rose-400'
-                          } opacity-60 group-hover:opacity-100 transition-opacity`} />
+                          <span className={`w-1.5 h-1.5 rounded-full bg-${cert.color === 'emerald' ? 'emerald-400' :
+                              cert.color === 'cyan' ? 'cyan-400' :
+                                cert.color === 'violet' ? 'violet-400' :
+                                  cert.color === 'orange' ? 'orange-400' : 'rose-400'
+                            } opacity-60 group-hover:opacity-100 transition-opacity`} />
                           <span className="text-sm text-white/60 group-hover:text-white/90 transition-colors font-medium">{cert.title}</span>
                         </div>
                         <span className="text-[9px] font-mono uppercase tracking-widest text-white/25 group-hover:text-white/50 transition-colors shrink-0 ml-2">{cert.issuer}</span>
@@ -673,13 +671,13 @@ function App() {
         </div>
       </section>
 
-      <footer id="contact" className="py-32 px-6 md:px-12 lg:px-24 bg-white dark:bg-black border-t border-black/10 dark:border-white/10 relative overflow-hidden">
+      <footer id="contact" className="min-h-screen md:h-screen md:min-h-[700px] flex flex-col justify-between py-10 md:py-12 lg:py-16 px-6 md:px-12 lg:px-24 bg-white dark:bg-black border-t border-black/10 dark:border-white/10 relative overflow-hidden">
         {/* Decorative Background Glow */}
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-primary/10 blur-[120px] rounded-full z-0 opacity-40" />
 
-        <div className="max-w-7xl mx-auto flex flex-col items-start gap-24 relative z-10">
+        <div className="max-w-7xl mx-auto flex-1 flex flex-col justify-between items-start gap-8 lg:gap-0 relative z-10 w-full">
           <SectionTransition className="w-full">
-            <h2 className="text-5xl md:text-8xl lg:text-9xl font-display font-bold tracking-tighter leading-[0.9] mb-12 text-black dark:text-white min-h-[2.2em] md:min-h-[1.8em] flex items-center overflow-visible">
+            <h2 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold tracking-tighter leading-[0.9] mb-6 md:mb-8 text-black dark:text-white min-h-[2.2em] md:min-h-[1.8em] flex items-center overflow-visible">
               <RotatingText
                 texts={[
                   "LET'S BUILD THE FUTURE OF AI.",
@@ -703,29 +701,29 @@ function App() {
             </p>
           </SectionTransition>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 w-full pt-16 border-t border-black/10 dark:border-white/10">
-            <div className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 w-full pt-6 md:pt-8 border-t border-black/10 dark:border-white/10">
+            <div className="space-y-3 md:space-y-4">
               <h4 className="text-[10px] uppercase tracking-[0.4em] text-black dark:text-white font-bold">Contact</h4>
               <a
                 href="mailto:amal018josephmathi@gmail.com"
-                className="group block text-base md:text-lg font-display font-bold text-black dark:text-white hover:text-primary dark:hover:text-primary transition-all duration-500 relative w-fit"
+                className="group block text-sm sm:text-base lg:text-lg font-display font-bold text-black dark:text-white hover:text-primary dark:hover:text-primary transition-all duration-500 relative w-fit break-all"
               >
                 amal018josephmathi@gmail.com
                 <span className="absolute bottom-[-4px] left-0 w-0 h-0.5 bg-primary transition-all duration-500 group-hover:w-full" />
               </a>
             </div>
-            <div className="space-y-6">
+            <div className="space-y-3 md:space-y-4">
               <h4 className="text-[10px] uppercase tracking-[0.4em] text-black dark:text-white font-bold">Location</h4>
-              <p className="text-base md:text-lg font-display font-bold text-black dark:text-white leading-tight">Chennai, India</p>
+              <p className="text-sm sm:text-base lg:text-lg font-display font-bold text-black dark:text-white leading-tight">Chennai, India</p>
             </div>
-            <div className="space-y-6">
+            <div className="space-y-3 md:space-y-4">
               <h4 className="text-[10px] uppercase tracking-[0.4em] text-black dark:text-white font-bold">Social Architecture</h4>
               <div className="flex flex-wrap gap-8">
-                <a href="https://github.com/amaljoshmaadhavj" target="_blank" className="text-sm font-bold text-black dark:text-white hover:text-primary transition-colors flex items-center gap-2 group">
+                <a href="https://github.com/amaljoshmaadhavj" target="_blank" className="text-sm sm:text-base lg:text-lg font-bold text-black dark:text-white hover:text-primary transition-colors flex items-center gap-2 group">
                   <Github className="w-4 h-4 opacity-70 group-hover:opacity-100" />
                   <span>GitHub</span>
                 </a>
-                <a href="https://www.linkedin.com/in/amaljoshmaadhavj/" target="_blank" className="text-base font-bold text-black dark:text-white hover:text-primary transition-colors flex items-center gap-2 group">
+                <a href="https://www.linkedin.com/in/amaljoshmaadhavj/" target="_blank" className="text-sm sm:text-base lg:text-lg font-bold text-black dark:text-white hover:text-primary transition-colors flex items-center gap-2 group">
                   <Linkedin className="w-4 h-4 opacity-70 group-hover:opacity-100" />
                   <span>LinkedIn</span>
                 </a>
@@ -733,7 +731,7 @@ function App() {
             </div>
           </div>
 
-          <div className="w-full pt-16 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] uppercase tracking-[0.4em] font-black text-black dark:text-white">
+          <div className="w-full pt-4 md:pt-6 flex flex-col md:flex-row justify-between items-center gap-8 text-[10px] uppercase tracking-[0.4em] font-black text-black dark:text-white">
             <p>© {new Date().getFullYear()} Amaljosh Maadhav J</p>
             <div className="flex items-center gap-4">
               <span className="w-8 h-[1px] bg-black dark:bg-white" />
@@ -773,29 +771,29 @@ function SkillCard({ icon, title, skills, className }: { icon: React.ReactNode, 
   }
 
   // Dynamic colors and glow configurations based on category
-  const folderColor = 
+  const folderColor =
     title.includes("Machine Learning") ? '#6366f1' : // Indigo
-    title.includes("Deep Learning") ? '#10b981' : // Emerald
-    title.includes("Computer Vision") ? '#3b82f6' : // Blue
-    title.includes("Data Systems") ? '#f59e0b' : // Amber
-    title.includes("Engineering") ? '#f43f5e' : // Rose
-    '#10b981';
+      title.includes("Deep Learning") ? '#10b981' : // Emerald
+        title.includes("Computer Vision") ? '#3b82f6' : // Blue
+          title.includes("Data Systems") ? '#f59e0b' : // Amber
+            title.includes("Engineering") ? '#f43f5e' : // Rose
+              '#10b981';
 
   const glowColorClass =
     title.includes("Machine Learning") ? 'hover:border-indigo-500/40 hover:shadow-indigo-500/5' :
-    title.includes("Deep Learning") ? 'hover:border-emerald-500/40 hover:shadow-emerald-500/5' :
-    title.includes("Computer Vision") ? 'hover:border-blue-500/40 hover:shadow-blue-500/5' :
-    title.includes("Data Systems") ? 'hover:border-amber-500/40 hover:shadow-amber-500/5' :
-    title.includes("Engineering") ? 'hover:border-rose-500/40 hover:shadow-rose-500/5' :
-    'hover:border-emerald-500/40 hover:shadow-emerald-500/5';
+      title.includes("Deep Learning") ? 'hover:border-emerald-500/40 hover:shadow-emerald-500/5' :
+        title.includes("Computer Vision") ? 'hover:border-blue-500/40 hover:shadow-blue-500/5' :
+          title.includes("Data Systems") ? 'hover:border-amber-500/40 hover:shadow-amber-500/5' :
+            title.includes("Engineering") ? 'hover:border-rose-500/40 hover:shadow-rose-500/5' :
+              'hover:border-emerald-500/40 hover:shadow-emerald-500/5';
 
   const glowLightColorClass =
     title.includes("Machine Learning") ? 'bg-indigo-500/5' :
-    title.includes("Deep Learning") ? 'bg-emerald-500/5' :
-    title.includes("Computer Vision") ? 'bg-blue-500/5' :
-    title.includes("Data Systems") ? 'bg-amber-500/5' :
-    title.includes("Engineering") ? 'bg-rose-500/5' :
-    'bg-emerald-500/5';
+      title.includes("Deep Learning") ? 'bg-emerald-500/5' :
+        title.includes("Computer Vision") ? 'bg-blue-500/5' :
+          title.includes("Data Systems") ? 'bg-amber-500/5' :
+            title.includes("Engineering") ? 'bg-rose-500/5' :
+              'bg-emerald-500/5';
 
   // Dynamically split skills into 3 parts for papers
   const paperItemsCount = Math.ceil(skills.length / 3);
@@ -1112,7 +1110,7 @@ function ProjectRow({ index, title, category, problem, solution, impact, tech, l
   return (
     <SectionTransition>
       <div className={cn(
-        "flex flex-col lg:flex-row items-center gap-12 lg:gap-20 py-20 border-b border-border/60 last:border-0",
+        "flex flex-col lg:flex-row items-center gap-12 lg:gap-20 py-12 border-b border-border/60 last:border-0",
         isEven ? "lg:flex-row-reverse" : "lg:flex-row"
       )}>
         {/* Graphical Visual Mockup representation — Card Swap Stack */}

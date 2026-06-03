@@ -4,13 +4,14 @@ import { motion, useInView, useAnimation } from 'framer-motion';
 interface Props {
   children: React.ReactNode;
   className?: string;
+  innerClassName?: string;
   delay?: number;
 }
 
 // Higher-end professional ease
 const professionalEase = [0.4, 0, 0.2, 1] as const;
 
-export const SectionTransition = ({ children, className, delay = 0 }: Props) => {
+export const SectionTransition = ({ children, className, innerClassName, delay = 0 }: Props) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
   const mainControls = useAnimation();
@@ -24,6 +25,7 @@ export const SectionTransition = ({ children, className, delay = 0 }: Props) => 
   return (
     <div ref={ref} className={className}>
       <motion.div
+        className={innerClassName}
         variants={{
           hidden: { opacity: 0, y: 30 },
           visible: { opacity: 1, y: 0 },
