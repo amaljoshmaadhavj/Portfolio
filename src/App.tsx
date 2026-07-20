@@ -22,6 +22,25 @@ import heroPng from './assets/hero.png';
 function App() {
   const [showMoreProjects, setShowMoreProjects] = useState(false);
   const [isHeroHovered, setIsHeroHovered] = useState(false);
+  const experienceCertifications = [
+    { title: 'The Data Science Course: Complete Data Science Bootcamp', issuer: 'Udemy', color: 'emerald' },
+    { title: 'Introduction to Tableau', issuer: 'Simplilearn', color: 'cyan' },
+    { title: 'PyTorch Foundations', issuer: 'Packt', color: 'violet' },
+    { title: 'PyTorch Neural Networks', issuer: 'Packt', color: 'orange' },
+    { title: 'PyTorch Advanced', issuer: 'Packt', color: 'rose' },
+    { title: 'Student Automation Developer Associate', issuer: 'UiPath Academic Alliance', color: 'emerald' },
+    { title: 'Machine Learning Beginner', issuer: 'Infosys Springboard', color: 'cyan' },
+    { title: 'CUDA Specialization: Parallel & GPU Programming', issuer: 'Johns Hopkins University', color: 'violet' },
+  ];
+
+  const certificationColorClasses: Record<string, string> = {
+    emerald: 'bg-emerald-400',
+    cyan: 'bg-cyan-400',
+    violet: 'bg-violet-400',
+    orange: 'bg-orange-400',
+    rose: 'bg-rose-400',
+  };
+
   return (
     <div className="relative min-h-screen font-sans selection:bg-primary/10 selection:text-foreground bg-subtle-mesh overflow-x-hidden">
       <Preloader />
@@ -200,10 +219,10 @@ function App() {
                       <div className="w-3 h-3 rounded-full bg-[#EF4444] opacity-80" />
                       <div className="w-3 h-3 rounded-full bg-[#F59E0B] opacity-80" />
                       <div className="w-3 h-3 rounded-full bg-[#10B981] opacity-80" />
-                      <span className="ml-2 font-mono text-xs text-white/35">amal@amal-pc:~</span>
+                      <span className="ml-2 font-mono text-xs text-white/35">amal@intelligence:~</span>
                     </div>
                     <div className="font-mono text-xs text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded border border-emerald-500/20">
-                      active_mission.sh
+                      build_ai.py
                     </div>
                   </div>
 
@@ -214,13 +233,13 @@ function App() {
                     </p>
 
                     <p className="text-white/60 text-base md:text-lg leading-relaxed pt-2 font-light">
-                      Building strong foundations in Artificial Intelligence, Machine Learning, Data Science, and intelligent system development while actively participating in technical projects and innovation programs.
+                      Final-year AI & Data Science undergraduate passionate about developing intelligent systems using Machine Learning, Natural Language Processing, and Data Analytics. Experienced in building end-to-end AI applications, predictive models, and automation solutions while continuously exploring emerging technologies that create real-world impact.
                     </p>
                   </div>
 
                   {/* Terminal Footer */}
                   <div className="mt-8 pt-4 border-t border-white/5 flex items-center justify-between font-mono text-[10px] text-white/30">
-                    <div>SYSTEM: ONLINE</div>
+                    <div>SYSTEM: BUILDING</div>
                     <div className="flex items-center gap-1">
                       <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse inline-block" />
                       <span>LIVE TELEMETRY</span>
@@ -245,17 +264,20 @@ function App() {
                     </h3>
                     <ul className="space-y-3 font-mono text-sm">
                       <li className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
-                        <span className="text-cyan-500">▶</span> Predictive Modeling
-                      </li>
-                      <li className="flex items-center gap-2 text-emerald-400 font-bold hover:text-emerald-300 transition-colors">
-                        <span className="text-emerald-500">▶</span> NLP & RAG
+                        <span className="text-emerald-500">▶</span> Machine Learning
                       </li>
                       <li className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
-                        <span className="text-cyan-500">▶</span> AI Product Development
+                        <span className="text-emerald-500">▶</span> NLP & RAG Systems
+                      </li>
+                      <li className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
+                        <span className="text-emerald-500">▶</span> Predictive Analysis
+                      </li>
+                      <li className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
+                        <span className="text-emerald-500">▶</span> AI Automation
                       </li>
                     </ul>
                   </div>
-                  <div className="text-[10px] font-mono text-white/20 mt-6 uppercase tracking-wider">
+                  <div className="text-[10px] font-mono text-emerald-400 mt-6 uppercase tracking-wider">
                     // CORE EXPERTISE
                   </div>
                 </div>
@@ -267,23 +289,26 @@ function App() {
                   <div className="absolute -top-[1px] left-6 right-6 h-[1px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent" />
 
                   <div>
-                    <h3 className="font-display font-bold uppercase text-xs tracking-[0.3em] text-emerald-400 mb-4 inline-flex items-center gap-2">
-                      <Cpu className="w-4 h-4 text-emerald-400" />
+                    <h3 className="font-display font-bold uppercase text-xs tracking-[0.3em] text-cyan-400 mb-4 inline-flex items-center gap-2">
+                      <Cpu className="w-4 h-4 text-cyan-400" />
                       Interests
                     </h3>
                     <ul className="space-y-3 font-mono text-sm">
                       <li className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
-                        <span className="text-emerald-500">▷</span> Data Analytics
+                        <span className="text-emerald-500">▷</span> Data Engineering
                       </li>
-                      <li className="flex items-center gap-2 text-cyan-400 font-bold hover:text-cyan-300 transition-colors">
-                        <span className="text-cyan-500">▷</span> Cyber AI
+                      <li className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
+                        <span className="text-cyan-500">▷</span> AI Agents
+                      </li>
+                      <li className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
+                        <span className="text-emerald-500">▷</span> Computer Vision
                       </li>
                       <li className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
                         <span className="text-emerald-500">▷</span> Intelligent Systems
                       </li>
                     </ul>
                   </div>
-                  <div className="text-[10px] font-mono text-white/20 mt-6 uppercase tracking-wider">
+                  <div className="text-[10px] font-mono text-emerald-400 mt-6 uppercase tracking-wider">  
                     // PASSION VECTORS
                   </div>
                 </div>
@@ -339,7 +364,8 @@ function App() {
               <SkillCard
                 icon={<Brain className="w-8 h-8 text-indigo-500" />}
                 title="Machine Learning"
-                skills={["Regression", "Clustering", "Explainable AI", "Feature Engineering", "Scikit-Learn"]}
+                skills={["Regression", "Classification", "Clustering", "Feature Engineering", "Model Evaluation", "Scikit-Learn"]}
+
                 className="h-full"
               />
             </div>
@@ -347,7 +373,7 @@ function App() {
               <SkillCard
                 icon={<Cpu className="w-8 h-8 text-emerald-500" />}
                 title="Deep Learning & NLP"
-                skills={["Transformers", "CNNs", "RAG", "LLMs", "Tf-Idf", "PyTorch", "TensorFlow"]}
+                skills={["TensorFlow", "PyTorch", "CNNs", "Transformers", "LLMs", "RAG"]}
                 className="h-full"
               />
             </div>
@@ -355,7 +381,7 @@ function App() {
               <SkillCard
                 icon={<Code className="w-8 h-8 text-blue-500" />}
                 title="Computer Vision"
-                skills={["YOLO", "OCR", "OpenCV", "Object Detection"]}
+                skills={["OpenCV", "YOLO", "OCR", "Image Classification", "Object Detection"]}
                 className="h-full"
               />
             </div>
@@ -363,7 +389,7 @@ function App() {
               <SkillCard
                 icon={<Database className="w-8 h-8 text-amber-500" />}
                 title="Data Systems"
-                skills={["MongoDB", "SQL", "FAISS Vector DB", "Pandas", "Tableau"]}
+                skills={["Python", "SQL", "Pandas", "MongoDB", "Tableau", "Data Visualization"]}
                 className="h-full"
               />
             </div>
@@ -371,7 +397,7 @@ function App() {
               <SkillCard
                 icon={<Layers className="w-8 h-8 text-rose-500" />}
                 title="Engineering"
-                skills={["Node.js", "Docker", "FastAPI", "Microservices", "Git"]}
+                skills={["FastAPI", "Node.js", "Docker", "Git", "REST APIs", "AI Agents"]}
                 className="h-full"
               />
             </div>
@@ -542,7 +568,7 @@ function App() {
       </section>
 
       {/* Experience & Certifications */}
-      <section id="experience" className="relative pt-24 pb-16 px-6 md:px-12 lg:px-24 bg-black overflow-hidden">
+      <section id="experience" className="relative py-12 md:py-16 px-6 md:px-12 lg:px-24 bg-black overflow-hidden">
         {/* Subtle grid background */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{
           backgroundImage: 'linear-gradient(#10b981 1px, transparent 1px), linear-gradient(90deg, #10b981 1px, transparent 1px)',
@@ -553,7 +579,7 @@ function App() {
 
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <SectionTransition className="mb-10">
+          <SectionTransition className="mb-6">
             <p className="text-emerald-400 font-mono text-xs uppercase tracking-[0.4em] mb-4">// 04 PROFESSIONAL RECORD</p>
             <h2 className="text-4xl md:text-5xl font-display font-black tracking-tight text-white inline-flex items-center gap-4 uppercase">
               <span className="w-16 h-[2px] bg-gradient-to-r from-emerald-500 to-cyan-500" />
@@ -561,16 +587,16 @@ function App() {
             </h2>
           </SectionTransition>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 xl:gap-8 items-start">
             {/* Main Experience Card */}
-            <div className="lg:col-span-8">
+            <div className="lg:col-span-8 flex flex-col gap-6">
               <SectionTransition delay={0.1}>
-                <div className="relative rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-8 md:p-10 group hover:border-emerald-500/30 transition-all duration-500 overflow-hidden">
+                <div className="relative rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-5 md:p-7 group hover:border-emerald-500/30 transition-all duration-500 overflow-hidden">
                   {/* Top glow line */}
                   <div className="absolute -top-px left-10 right-10 h-px bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent" />
 
                   {/* Role badge + date */}
-                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-8">
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-5">
                     <div>
                       <span className="inline-flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.3em] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full mb-4">
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -579,7 +605,7 @@ function App() {
                       <h3 className="text-2xl md:text-3xl font-display font-black uppercase tracking-tight text-white mt-2">
                         Artificial Intelligence Trainee
                       </h3>
-                      <p className="text-emerald-400 font-mono text-sm mt-1 tracking-widest uppercase">KaviiTamil Solutions</p>
+                      <p className="text-emerald-400 font-mono text-sm mt-1 tracking-widest">KaviTamil Solutions</p>
                     </div>
                     <div className="shrink-0">
                       <span className="font-mono text-xs text-white/40 bg-white/5 border border-white/10 px-4 py-2 rounded-full whitespace-nowrap">
@@ -589,10 +615,10 @@ function App() {
                   </div>
 
                   {/* Divider */}
-                  <div className="h-px bg-white/5 mb-8" />
+                  <div className="h-px bg-white/5 mb-6" />
 
                   {/* Responsibilities */}
-                  <ul className="space-y-5">
+                  <ul className="space-y-3.5">
                     {[
                       { code: '01', text: 'Developed supervised and unsupervised ML models using Scikit-Learn on real-world datasets for predictive performance.' },
                       { code: '02', text: 'Implemented modular machine learning workflows from data preprocessing to feature engineering and validation.' },
@@ -606,8 +632,8 @@ function App() {
                   </ul>
 
                   {/* Tech tags */}
-                  <div className="flex flex-wrap gap-2 mt-8 pt-6 border-t border-white/5">
-                    {['Python', 'Scikit-Learn', 'Pandas', 'NumPy', 'Jupyter'].map(tag => (
+                  <div className="flex flex-wrap gap-2 mt-5 pt-4 border-t border-white/5">
+                    {['Python', 'NumPy', 'Pandas', 'Scikit-Learn', 'Feature Engineering', 'Model Evaluation'].map(tag => (
                       <span key={tag} className="font-mono text-[10px] text-white/40 bg-white/5 border border-white/10 px-3 py-1 rounded-full hover:text-emerald-400 hover:border-emerald-500/30 transition-all cursor-default">
                         {tag}
                       </span>
@@ -615,48 +641,17 @@ function App() {
                   </div>
                 </div>
               </SectionTransition>
-            </div>
 
-            {/* Certifications Column */}
-            <div className="lg:col-span-4 flex flex-col gap-5">
-              <SectionTransition delay={0.2}>
-                <p className="font-mono text-[10px] text-white/30 uppercase tracking-[0.3em] mb-6">// CERTIFICATIONS</p>
-                <div className="space-y-3">
-                  {[
-                    { title: 'Data Science Bootcamp', issuer: 'Udemy', color: 'emerald' },
-                    { title: 'Machine Learning Beginner', issuer: 'Infosys Springboard', color: 'cyan' },
-                    { title: 'CUDA at Scale', issuer: 'Johns Hopkins', color: 'violet' },
-                    { title: 'PyTorch Foundations', issuer: 'Packt', color: 'orange' },
-                    { title: 'Student Automation Dev', issuer: 'UiPath', color: 'rose' },
-                  ].map((cert, i) => (
-                    <SectionTransition key={cert.title} delay={0.25 + i * 0.06}>
-                      <div className="group flex items-center justify-between p-4 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/[0.12] transition-all duration-300 cursor-default">
-                        <div className="flex items-center gap-3">
-                          <span className={`w-1.5 h-1.5 rounded-full bg-${cert.color === 'emerald' ? 'emerald-400' :
-                              cert.color === 'cyan' ? 'cyan-400' :
-                                cert.color === 'violet' ? 'violet-400' :
-                                  cert.color === 'orange' ? 'orange-400' : 'rose-400'
-                            } opacity-60 group-hover:opacity-100 transition-opacity`} />
-                          <span className="text-sm text-white/60 group-hover:text-white/90 transition-colors font-medium">{cert.title}</span>
-                        </div>
-                        <span className="text-[9px] font-mono uppercase tracking-widest text-white/25 group-hover:text-white/50 transition-colors shrink-0 ml-2">{cert.issuer}</span>
-                      </div>
-                    </SectionTransition>
-                  ))}
-                </div>
-              </SectionTransition>
-
-              {/* Stats Card */}
               <SectionTransition delay={0.5}>
-                <div className="mt-4 rounded-2xl border border-white/10 bg-white/[0.03] p-6 relative overflow-hidden">
+                <div className="max-w-3xl rounded-2xl border border-white/10 bg-white/[0.03] p-4 md:p-5 relative overflow-hidden">
                   <div className="absolute -top-px left-6 right-6 h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent" />
-                  <p className="font-mono text-[10px] text-white/30 uppercase tracking-[0.3em] mb-5">// AT A GLANCE</p>
-                  <div className="grid grid-cols-2 gap-4">
+                  <p className="font-mono text-[10px] text-white/30 uppercase tracking-[0.3em] mb-4">// AT A GLANCE</p>
+                  <div className="grid grid-cols-2 gap-3 md:gap-4">
                     {[
-                      { value: '5+', label: 'Certifications' },
+                      { value: '8+', label: 'Certifications' },
                       { value: '8+', label: 'Projects' },
-                      { value: '2024', label: 'Started' },
-                      { value: 'Active', label: 'Status' },
+                      { value: '2024', label: 'AI Journey' },
+                      { value: 'Active', label: 'Building' },
                     ].map(stat => (
                       <div key={stat.label} className="flex flex-col gap-1">
                         <span className="text-2xl font-display font-black text-white tracking-tight">{stat.value}</span>
@@ -664,6 +659,26 @@ function App() {
                       </div>
                     ))}
                   </div>
+                </div>
+              </SectionTransition>
+            </div>
+
+            {/* Certifications Column */}
+            <div className="lg:col-span-4 flex flex-col gap-3">
+              <SectionTransition delay={0.2}>
+                <p className="font-mono text-[10px] text-white/30 uppercase tracking-[0.3em] mb-3">// CERTIFICATIONS</p>
+                <div className="space-y-2">
+                  {experienceCertifications.map((cert, i) => (
+                    <SectionTransition key={cert.title} delay={0.25 + i * 0.06}>
+                      <div className="group flex flex-col gap-2 p-2.5 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/[0.12] transition-all duration-300 cursor-default">
+                        <div className="flex items-start gap-3">
+                          <span className={`w-1.5 h-1.5 rounded-full ${certificationColorClasses[cert.color] ?? 'bg-white/40'} opacity-60 group-hover:opacity-100 transition-opacity shrink-0 mt-1`} />
+                          <span className="text-sm text-white/70 group-hover:text-white/90 transition-colors font-medium leading-snug">{cert.title}</span>
+                        </div>
+                        <span className="text-[9px] font-mono uppercase tracking-widest text-white/25 group-hover:text-white/50 transition-colors whitespace-normal leading-relaxed pl-5">{cert.issuer}</span>
+                      </div>
+                    </SectionTransition>
+                  ))}
                 </div>
               </SectionTransition>
             </div>
@@ -697,8 +712,66 @@ function App() {
               />
             </h2>
             <p className="text-xl md:text-2xl font-normal max-w-2xl leading-relaxed text-black/50 dark:text-white/50">
-              Currently open to collaborations on research-driven AI products and scalable machine learning ecosystems.
+              Interested in building intelligent AI systems, collaborating on impactful projects, and contributing to real-world machine learning solutions.
             </p>
+          </SectionTransition>
+
+          <motion.div
+            initial={{ opacity: 0, y: 14, scale: 0.98 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            className="pointer-events-none absolute hidden lg:block right-0 top-[210px] xl:top-[225px] w-[min(34vw,380px)]"
+          >
+            <div className="relative overflow-hidden rounded-2xl border border-black/10 dark:border-white/10 bg-black text-white shadow-2xl shadow-black/10">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-cyan-500/10 pointer-events-none" />
+              <div className="relative p-4 xl:p-5">
+                <div className="flex items-center justify-between mb-3 text-[9px] uppercase tracking-[0.35em] text-white/40 font-mono">
+                  <span>build_future.py</span>
+                  <span>live</span>
+                </div>
+                <div className="space-y-1.5 font-mono text-[11px] xl:text-xs leading-relaxed text-white/85">
+                  {[
+                    'def build_future():',
+                    '    learn()',
+                    '    build()',
+                    '    innovate()',
+                    '',
+                    'build_future()'
+                  ].map((line, index) => (
+                    <motion.div
+                      key={line || `blank-${index}`}
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, amount: 0.5 }}
+                      transition={{ duration: 0.35, delay: 0.1 + index * 0.08 }}
+                      className="flex items-start gap-2.5"
+                    >
+                      <span className="w-4 text-right text-white/30 select-none">{index < 4 ? `0${index + 1}` : ''}</span>
+                      <span className={line === 'build_future()' ? 'text-primary' : line === 'def build_future():' ? 'text-cyan-300' : 'text-white/85'}>
+                        {line || '\u00a0'}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+              <motion.span
+                animate={{ opacity: [0.2, 1, 0.2] }}
+                transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
+                className="absolute bottom-3 right-3 w-2 h-2 rounded-full bg-primary shadow-[0_0_18px_rgba(16,185,129,0.9)]"
+              />
+            </div>
+          </motion.div>
+
+          <SectionTransition delay={0.08} className="w-full">
+            <div className="max-w-3xl mt-8 md:mt-10 mb-4 md:mb-6 border-l-2 border-primary/30 pl-5 md:pl-6">
+              <p className="text-lg md:text-2xl font-display italic font-medium leading-relaxed text-black dark:text-white/90">
+                Always learning. Always building. Always improving.
+              </p>
+              <p className="mt-2 text-sm md:text-base font-medium tracking-wide text-black/55 dark:text-white/55">
+                Let&apos;s build intelligent solutions together.
+              </p>
+            </div>
           </SectionTransition>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 w-full pt-6 md:pt-8 border-t border-black/10 dark:border-white/10">
