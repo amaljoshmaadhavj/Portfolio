@@ -11,6 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
+.vercel
 
 # Editor directories and files
 .vscode/*
@@ -31,11 +32,6 @@ dist-ssr
 .vite
 .cache
 coverage
-
-# Personal resume (do not commit private resume files)
-public/resume/
-Resume.pdf
-resume.pdf
 
 # Misc
 npm-debug.log*
