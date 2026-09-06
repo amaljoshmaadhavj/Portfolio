@@ -6,27 +6,22 @@ export const Preloader = () => {
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
-    // Disable scrolling when loading
     document.body.style.overflow = 'hidden';
 
-    // Cinematic digital counter simulation from 0 to 100 (slower paced)
     let current = 0;
     const interval = setInterval(() => {
-      // Non-linear increments for a more organic feel
-      const increment = Math.floor(Math.random() * 3) + 1;
+      const increment = Math.floor(Math.random() * 8) + 5;
       current = Math.min(current + increment, 100);
       setCount(current);
 
       if (current >= 100) {
         clearInterval(interval);
-        // Add a slight delay before triggering the swipe-up exit
         setTimeout(() => {
           setIsComplete(true);
-          // Restore body scrolling
           document.body.style.overflow = 'auto';
-        }, 1200);
+        }, 400);
       }
-    }, 125);
+    }, 40);
 
     return () => {
       clearInterval(interval);
@@ -42,7 +37,7 @@ export const Preloader = () => {
           exit={{
             y: '-100vh',
             transition: {
-              duration: 1.85,
+              duration: 1.0,
               ease: [0.76, 0, 0.24, 1]
             }
           }}
@@ -74,7 +69,7 @@ export const Preloader = () => {
             <div className="flex flex-col items-center gap-1">
               <span className="text-[10px] font-mono uppercase tracking-widest text-foreground/30">Status</span>
               <span className="text-xs font-mono text-foreground/60 text-center">
-                {count < 30 ? 'Loading Assets...' : count < 75 ? 'Structuring DOM...' : count < 100 ? 'Configuring AI Modules...' : 'Ready'}
+                {count < 30 ? 'Initializing...' : count < 75 ? 'Preparing...' : count < 100 ? 'Almost Ready...' : 'Ready'}
               </span>
             </div>
           </div>

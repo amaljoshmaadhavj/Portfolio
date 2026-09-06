@@ -191,24 +191,11 @@ export const Navbar = () => {
             isScrolled ? 'shadow-2xl shadow-black/50' : 'shadow-xl shadow-black/20'
           )}
         >
-          {/* Logo */}
-          <a
-            href="#home"
-            className="flex items-center gap-2 px-3 pr-2 group"
-          >
-            <span className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center overflow-hidden flex-shrink-0">
-              <img
-                src="/favicon.svg"
-                alt="Logo"
-                className="w-5 h-5 group-hover:rotate-90 transition-transform duration-500"
-              />
-            </span>
-            <span className="text-white text-sm font-bold tracking-tighter uppercase whitespace-nowrap">
+<span className="text-white text-sm font-bold tracking-tighter uppercase whitespace-nowrap">
               AJM <span className="text-primary">/&gt;</span>
             </span>
-          </a>
 
-          {/* Theme Toggle */}
+            {/* Theme Toggle */}
           <motion.button
             id="theme-toggle"
             aria-label="Toggle dark/light mode"

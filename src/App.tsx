@@ -14,7 +14,7 @@ import DecryptedText from './components/ui/DecryptedText';
 import RotatingText from './components/ui/RotatingText';
 import DotGrid from './components/ui/DotGrid';
 import { Badge } from './components/ui/Badge';
-import { Code as Github, Briefcase as Linkedin, Mail, ArrowRight, Code, Database, Cpu, Brain, Layers, ChevronDown } from 'lucide-react';
+import { Code as Github, Briefcase as Linkedin, Mail, ArrowRight, Code, Database, Cpu, Brain, ChevronDown, Server, Scan } from 'lucide-react';
 import heroBackground from './assets/Untitled design-4.jpg';
 import heroHoverBackground from './assets/Untitled design-5.jpg';
 import heroPng from './assets/hero.png';
@@ -177,7 +177,7 @@ function App() {
         <div className="absolute top-20 right-0 w-64 h-64 md:w-[500px] md:h-[500px] bg-primary/5 blur-[80px] md:blur-[120px] rounded-full z-0 pointer-events-none" />
       </section>
 
-      <section id="about" className="relative min-h-screen flex flex-col justify-center py-16 px-6 md:px-12 lg:px-24 border-b border-border overflow-hidden text-white bg-black">
+      <section id="about" className="relative min-h-screen flex flex-col justify-center py-16 px-6 md:px-12 lg:px-24 border-b border-border overflow-hidden text-foreground bg-background">
 
         {/* DotGrid Background Layer */}
         <div className="absolute inset-0 -z-10 opacity-60 pointer-events-none">
@@ -196,11 +196,11 @@ function App() {
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <SectionTransition className="mb-16">
-            <h2 className="text-4xl md:text-5xl font-display font-black tracking-tight mb-4 inline-flex items-center gap-4 text-white uppercase">
+            <h2 className="text-4xl md:text-5xl font-display font-black tracking-tight mb-4 inline-flex items-center gap-4 text-foreground uppercase">
               <span className="w-16 h-[2px] bg-gradient-to-r from-emerald-500 to-cyan-500"></span>
               The Mission
             </h2>
-            <p className="text-white/40 uppercase tracking-[0.2em] text-xs">01 // VISION & CORE PATHWAYS</p>
+            <p className="text-foreground/40 uppercase tracking-[0.2em] text-xs">01 // VISION & CORE PATHWAYS</p>
           </SectionTransition>
 
           {/* Redesigned Grid */}
@@ -209,17 +209,17 @@ function App() {
             {/* Left Box: Futuristic Interactive Terminal Shell (8 cols) */}
             <div className="lg:col-span-8 flex">
               <SectionTransition delay={0.1} className="w-full flex" innerClassName="w-full flex">
-                <div className="relative w-full rounded-2xl border border-white/10 bg-black backdrop-blur-md p-6 md:p-8 flex flex-col justify-between hover:border-emerald-500/30 transition-all duration-500 group shadow-2xl shadow-emerald-950/10">
+                <div className="relative w-full rounded-2xl border border-border bg-background backdrop-blur-md p-6 md:p-8 flex flex-col justify-between hover:border-emerald-500/30 transition-all duration-500 group shadow-2xl shadow-emerald-950/10">
                   {/* Decorative Glass Reflection / Glowing Dot */}
                   <div className="absolute -top-[1px] left-10 right-10 h-[1px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent" />
 
                   {/* Terminal Header */}
-                  <div className="flex items-center justify-between pb-6 mb-6 border-b border-white/5">
+                  <div className="flex items-center justify-between pb-6 mb-6 border-b border-border">
                     <div className="flex items-center gap-2">
                       <div className="w-3 h-3 rounded-full bg-[#EF4444] opacity-80" />
                       <div className="w-3 h-3 rounded-full bg-[#F59E0B] opacity-80" />
                       <div className="w-3 h-3 rounded-full bg-[#10B981] opacity-80" />
-                      <span className="ml-2 font-mono text-xs text-white/35">amal@intelligence:~</span>
+                      <span className="ml-2 font-mono text-xs text-foreground/35">amal@intelligence:~</span>
                     </div>
                     <div className="font-mono text-xs text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded border border-emerald-500/20">
                       build_ai.py
@@ -228,17 +228,17 @@ function App() {
 
                   {/* Core Statement */}
                   <div className="space-y-6 flex-grow">
-                    <p className="text-xl md:text-2xl font-bold leading-relaxed text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/70 italic pl-6 border-l-2 border-emerald-500/50">
-                      "Building intelligent AI systems that solve real-world problems through data, automation, and scalable machine learning.”
+                    <p className="text-xl md:text-2xl font-bold leading-relaxed text-transparent bg-clip-text bg-gradient-to-r from-foreground via-foreground to-foreground/70 italic pl-6 border-l-2 border-emerald-500/50">
+                      "Building intelligent software systems that solve real-world problems through AI, engineering, and scalable technology.”
                     </p>
 
-                    <p className="text-white/60 text-base md:text-lg leading-relaxed pt-2 font-light">
-                      Final-year AI & Data Science undergraduate passionate about developing intelligent systems using Machine Learning, Natural Language Processing, and Data Analytics. Experienced in building end-to-end AI applications, predictive models, and automation solutions while continuously exploring emerging technologies that create real-world impact.
+                    <p className="text-foreground/60 text-base md:text-lg leading-relaxed pt-2 font-light">
+                      AI & Data Science undergraduate focused on building intelligent software systems that combine strong engineering with machine learning. Experienced in developing end-to-end applications, backend APIs, AI-powered workflows, and scalable solutions.
                     </p>
                   </div>
 
                   {/* Terminal Footer */}
-                  <div className="mt-8 pt-4 border-t border-white/5 flex items-center justify-between font-mono text-[10px] text-white/30">
+                  <div className="mt-8 pt-4 border-t border-border flex items-center justify-between font-mono text-[10px] text-foreground/30">
                     <div>SYSTEM: BUILDING</div>
                     <div className="flex items-center gap-1">
                       <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse inline-block" />
@@ -254,64 +254,64 @@ function App() {
 
               {/* Focus Card */}
               <SectionTransition delay={0.2} className="flex-1 flex" innerClassName="w-full flex">
-                <div className="relative w-full rounded-2xl border border-white/10 bg-black backdrop-blur-md p-6 flex flex-col justify-between hover:border-emerald-500/30 transition-all duration-500 group shadow-lg">
-                  <div className="absolute -top-[1px] left-6 right-6 h-[1px] bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent" />
+<div className="relative w-full rounded-2xl border border-border bg-background backdrop-blur-md p-6 flex flex-col justify-between hover:border-emerald-500/30 transition-all duration-500 group shadow-lg">
+                   <div className="absolute -top-[1px] left-6 right-6 h-[1px] bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent" />
 
-                  <div>
-                    <h3 className="font-display font-bold uppercase text-xs tracking-[0.3em] text-cyan-400 mb-4 inline-flex items-center gap-2">
-                      <Brain className="w-4 h-4 text-cyan-400" />
-                      Focus
-                    </h3>
-                    <ul className="space-y-3 font-mono text-sm">
-                      <li className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
-                        <span className="text-emerald-500">▶</span> Machine Learning
-                      </li>
-                      <li className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
-                        <span className="text-emerald-500">▶</span> NLP & RAG Systems
-                      </li>
-                      <li className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
-                        <span className="text-emerald-500">▶</span> Predictive Analysis
-                      </li>
-                      <li className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
-                        <span className="text-emerald-500">▶</span> AI Automation
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="text-[10px] font-mono text-emerald-400 mt-6 uppercase tracking-wider">
-                    // CORE EXPERTISE
-                  </div>
-                </div>
+                   <div>
+                     <h3 className="font-display font-bold uppercase text-xs tracking-[0.3em] text-cyan-400 mb-4 inline-flex items-center gap-2">
+                       <Brain className="w-4 h-4 text-cyan-400" />
+                       Focus
+                     </h3>
+<ul className="space-y-3 font-mono text-sm">
+                        <li className="flex items-center gap-2 text-foreground/70 hover:text-foreground transition-colors">
+                          <span className="text-emerald-500">▶</span> Software Engineering
+                        </li>
+                        <li className="flex items-center gap-2 text-foreground/70 hover:text-foreground transition-colors">
+                          <span className="text-emerald-500">▶</span> AI & Machine Learning
+                        </li>
+                        <li className="flex items-center gap-2 text-foreground/70 hover:text-foreground transition-colors">
+                          <span className="text-emerald-500">▶</span> Backend & APIs
+                        </li>
+                        <li className="flex items-center gap-2 text-foreground/70 hover:text-foreground transition-colors">
+                          <span className="text-emerald-500">▶</span> Generative AI
+                        </li>
+                      </ul>
+                   </div>
+                   <div className="text-[10px] font-mono text-emerald-400 mt-6 uppercase tracking-wider">
+                     // CORE EXPERTISE
+                   </div>
+                 </div>
               </SectionTransition>
 
               {/* Interests Card */}
               <SectionTransition delay={0.3} className="flex-1 flex" innerClassName="w-full flex">
-                <div className="relative w-full rounded-2xl border border-white/10 bg-black backdrop-blur-md p-6 flex flex-col justify-between hover:border-emerald-500/30 transition-all duration-500 group shadow-lg">
-                  <div className="absolute -top-[1px] left-6 right-6 h-[1px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent" />
+<div className="relative w-full rounded-2xl border border-border bg-background backdrop-blur-md p-6 flex flex-col justify-between hover:border-emerald-500/30 transition-all duration-500 group shadow-lg">
+                   <div className="absolute -top-[1px] left-6 right-6 h-[1px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent" />
 
-                  <div>
-                    <h3 className="font-display font-bold uppercase text-xs tracking-[0.3em] text-cyan-400 mb-4 inline-flex items-center gap-2">
-                      <Cpu className="w-4 h-4 text-cyan-400" />
-                      Interests
-                    </h3>
-                    <ul className="space-y-3 font-mono text-sm">
-                      <li className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
-                        <span className="text-emerald-500">▷</span> Data Engineering
-                      </li>
-                      <li className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
-                        <span className="text-cyan-500">▷</span> AI Agents
-                      </li>
-                      <li className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
-                        <span className="text-emerald-500">▷</span> Computer Vision
-                      </li>
-                      <li className="flex items-center gap-2 text-white/70 hover:text-white transition-colors">
-                        <span className="text-emerald-500">▷</span> Intelligent Systems
-                      </li>
-                    </ul>
-                  </div>
-                  <div className="text-[10px] font-mono text-emerald-400 mt-6 uppercase tracking-wider">  
-                    // PASSION VECTORS
-                  </div>
-                </div>
+                   <div>
+                     <h3 className="font-display font-bold uppercase text-xs tracking-[0.3em] text-cyan-400 mb-4 inline-flex items-center gap-2">
+                       <Cpu className="w-4 h-4 text-cyan-400" />
+                       Interests
+                     </h3>
+<ul className="space-y-3 font-mono text-sm">
+                        <li className="flex items-center gap-2 text-foreground/70 hover:text-foreground transition-colors">
+                          <span className="text-cyan-500">▷</span> AI Agents
+                        </li>
+                        <li className="flex items-center gap-2 text-foreground/70 hover:text-foreground transition-colors">
+                          <span className="text-cyan-500">▷</span> Computer Vision
+                        </li>
+                        <li className="flex items-center gap-2 text-foreground/70 hover:text-foreground transition-colors">
+                          <span className="text-cyan-500">▷</span> Intelligent Systems
+                        </li>
+                        <li className="flex items-center gap-2 text-foreground/70 hover:text-foreground transition-colors">
+                          <span className="text-cyan-500">▷</span> Scalable AI Applications
+                        </li>
+                      </ul>
+                   </div>
+                   <div className="text-[10px] font-mono text-emerald-400 mt-6 uppercase tracking-wider">  
+                     // PASSION VECTORS
+                   </div>
+                 </div>
               </SectionTransition>
 
             </div>
@@ -334,7 +334,7 @@ function App() {
         </div>
       </section>
 
-      <section id="skills" className="relative pt-12 pb-16 px-6 md:px-12 lg:px-24 border-b border-border overflow-hidden text-white bg-black">
+      <section id="skills" className="relative pt-12 pb-16 px-6 md:px-12 lg:px-24 border-b border-border overflow-hidden text-foreground bg-background">
 
         {/* DotGrid Background Layer */}
         <div className="absolute inset-0 -z-10 opacity-60 pointer-events-none">
@@ -352,55 +352,50 @@ function App() {
 
         <div className="max-w-7xl mx-auto">
           <SectionTransition className="mb-10">
-            <h2 className="text-4xl md:text-5xl font-display font-black tracking-tight mb-4 inline-flex items-center gap-4 text-white uppercase">
+            <h2 className="text-4xl md:text-5xl font-display font-black tracking-tight mb-4 inline-flex items-center gap-4 text-foreground uppercase">
               <span className="w-16 h-[2px] bg-gradient-to-r from-emerald-500 to-cyan-500"></span>
               Technical Arsenal
             </h2>
-            <p className="text-white/40 uppercase tracking-[0.2em] text-xs">02 // CORE COMPETENCIES</p>
+            <p className="text-foreground/40 uppercase tracking-[0.2em] text-xs">02 // CORE COMPETENCIES</p>
           </SectionTransition>
 
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-6">
-            <div className="md:col-span-3">
-              <SkillCard
-                icon={<Brain className="w-8 h-8 text-indigo-500" />}
-                title="Machine Learning"
-                skills={["Regression", "Classification", "Clustering", "Feature Engineering", "Model Evaluation", "Scikit-Learn"]}
-
-                className="h-full"
-              />
-            </div>
-            <div className="md:col-span-3">
-              <SkillCard
-                icon={<Cpu className="w-8 h-8 text-emerald-500" />}
-                title="Deep Learning & NLP"
-                skills={["TensorFlow", "PyTorch", "CNNs", "Transformers", "LLMs", "RAG"]}
-                className="h-full"
-              />
-            </div>
-            <div className="md:col-span-2">
-              <SkillCard
-                icon={<Code className="w-8 h-8 text-blue-500" />}
-                title="Computer Vision"
-                skills={["OpenCV", "YOLO", "OCR", "Image Classification", "Object Detection"]}
-                className="h-full"
-              />
-            </div>
-            <div className="md:col-span-2">
-              <SkillCard
-                icon={<Database className="w-8 h-8 text-amber-500" />}
-                title="Data Systems"
-                skills={["Python", "SQL", "Pandas", "MongoDB", "Tableau", "Data Visualization"]}
-                className="h-full"
-              />
-            </div>
-            <div className="md:col-span-2">
-              <SkillCard
-                icon={<Layers className="w-8 h-8 text-rose-500" />}
-                title="Engineering"
-                skills={["FastAPI", "Node.js", "Docker", "Git", "REST APIs", "AI Agents"]}
-                className="h-full"
-              />
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <SkillCard
+              icon={<Code className="w-8 h-8 text-indigo-500" />}
+              title="Software Engineering"
+              skills={["Python", "Java", "C", "OOP", "DSA", "Git", "REST APIs"]}
+              className="h-full"
+            />
+            <SkillCard
+              icon={<Brain className="w-8 h-8 text-emerald-500" />}
+              title="AI & Machine Learning"
+              skills={["Supervised Learning", "Unsupervised Learning", "Regression", "Classification", "Feature Engineering", "Model Evaluation", "Scikit-Learn"]}
+              className="h-full"
+            />
+            <SkillCard
+              icon={<Cpu className="w-8 h-8 text-cyan-500" />}
+              title="Generative AI & NLP"
+              skills={["NLP", "Transformers", "LLMs", "RAG", "Prompt Engineering", "AI Agents", "Document Intelligence"]}
+              className="h-full"
+            />
+            <SkillCard
+              icon={<Server className="w-8 h-8 text-amber-500" />}
+              title="Backend & APIs"
+              skills={["FastAPI", "Node.js", "Express.js", "Django", "REST API Development", "Backend Architecture", "API Integration"]}
+              className="h-full"
+            />
+            <SkillCard
+              icon={<Database className="w-8 h-8 text-violet-500" />}
+              title="Data & Databases"
+              skills={["SQL", "PostgreSQL", "MySQL", "MongoDB", "Pandas", "NumPy", "Tableau", "Data Visualization"]}
+              className="h-full"
+            />
+            <SkillCard
+              icon={<Scan className="w-8 h-8 text-rose-500" />}
+              title="Computer Vision & DL"
+              skills={["PyTorch", "TensorFlow", "OpenCV", "CNNs", "YOLO", "OCR", "Image Classification", "Object Detection"]}
+              className="h-full"
+            />
           </div>
         </div>
       </section>
@@ -426,6 +421,7 @@ function App() {
               impact="Improves product quality assurance, automates inventory verification, and enhances intelligent retail workflows."
               tech={["YOLO", "PaddleOCR", "Django", "ResNet50"]}
               link="https://github.com/amaljoshmaadhavj/FlipVision.git"
+              images={["/projects/FlipVision/1.png", "/projects/FlipVision/2.png", "/projects/FlipVision/3.png"]}
               metrics={[
                 { value: "98.7%", label: "YOLO Accuracy" },
                 { value: "10x", label: "Verification Speed" },
@@ -440,7 +436,8 @@ function App() {
               solution="Developed a federated AI ecosystem integrating OCR, ATS scoring, interview simulation, skill analysis, and intelligent verification modules."
               impact="Creates a scalable and secure AI-driven hiring ecosystem with automated candidate evaluation and document authentication."
               tech={["React", "FastAPI", "MongoDB", "DocTR OCR"]}
-              link="https://github.com/amaljoshmaadhavj/REVA-AI.git"
+link="https://github.com/amaljoshmaadhavj/REVA-AI.git"
+               noImage={true}
               metrics={[
                 { value: "85%", label: "Time Saved" },
                 { value: "Secure", label: "Verification" },
@@ -449,21 +446,6 @@ function App() {
             />
             <ProjectRow
               index={2}
-              title="TRIAGEON"
-              category="Clinical Health Tech"
-              problem="Delayed identification of high-risk patients often leads to poor healthcare prioritization and avoidable complications."
-              solution="Built an ML-powered digital triage platform for disease risk prediction, urgency classification, and explainable patient prioritization."
-              impact="Enables faster medical risk assessment and supports healthcare teams with intelligent urgency-aware recommendations."
-              tech={["Python", "React", "Flask", "Scikit-Learn"]}
-              link="https://github.com/amaljoshmaadhavj/Triageon.git"
-              metrics={[
-                { value: "92%", label: "Urgency Accuracy" },
-                { value: "Instant", label: "Risk Classifier" },
-                { value: "Explainable", label: "Triage Engine" }
-              ]}
-            />
-            <ProjectRow
-              index={3}
               title="TraceGuard AI"
               category="Cyber Forensics"
               problem="Most forensic investigation systems rely on cloud infrastructure, risking privacy and offline accessibility."
@@ -471,6 +453,7 @@ function App() {
               impact="Supports secure investigation of Windows Event Logs and network traffic in isolated and privacy-focused environments."
               tech={["Ollama", "FAISS", "Python", "RAG"]}
               link="https://github.com/amaljoshmaadhavj/TraceGuard-AI.git"
+              images={["/projects/TraceGuard%20AI/1.png", "/projects/TraceGuard%20AI/2.png", "/projects/TraceGuard%20AI/3.png"]}
               metrics={[
                 { value: "100%", label: "Privacy Secure" },
                 { value: "Offline", label: "RAG Forensic Agent" },
@@ -478,7 +461,7 @@ function App() {
               ]}
             />
             <ProjectRow
-              index={4}
+              index={3}
               title="MatExtractAI"
               category="Research Automation"
               problem="Scientific research PDFs are difficult to convert into structured and machine-readable datasets."
@@ -486,6 +469,7 @@ function App() {
               impact="Automates scientific data extraction workflows while improving research traceability and reproducibility."
               tech={["PyMuPDF", "Camelot", "Next.js", "Local LLMs"]}
               link="https://github.com/amaljoshmaadhavj/MatExtractAI.git"
+              images={["/projects/MatExtractAI/1.png", "/projects/MatExtractAI/2.png", "/projects/MatExtractAI/3.png"]}
               metrics={[
                 { value: "Hybrid", label: "PDF Parsing" },
                 { value: "Local", label: "LLM Agents" },
@@ -493,18 +477,35 @@ function App() {
               ]}
             />
             <ProjectRow
-              index={5}
-              title="INYA Airlines"
-              category="Travel & Booking Systems"
-              problem="Lightweight flight booking systems often lack simple APIs for reservation tracking and cancellation workflows."
-              solution="Developed a RESTful flight booking API supporting reservations, booking status tracking, multilingual responses, and refund calculations."
-              impact="Simplifies airline reservation workflows with fast and lightweight backend operations."
-              tech={["Node.js", "Express.js", "REST API", "JSON Storage"]}
-              link="https://github.com/amaljoshmaadhavj/INYA-Airlines.git"
+              index={4}
+              title="InterviewIQ"
+              category="AI Interview & Career Assistance"
+              problem="Candidates lack realistic interview practice environments with detailed performance feedback."
+              solution="Built an AI-powered interview practice platform with resume analysis, real-time evaluation, and intelligent feedback systems."
+              impact="Helps candidates improve technical interview performance through personalized AI-driven assessments."
+              tech={["Next.js", "FastAPI", "OpenRouter", "Node.js"]}
+              link="https://github.com/amaljoshmaadhavj/InterviewIQ.git"
+              images={["/projects/InterviewIQ/1.png", "/projects/InterviewIQ/2.png", "/projects/InterviewIQ/3.png"]}
               metrics={[
-                { value: "RESTful", label: "Lightweight API" },
-                { value: "Automated", label: "Refund Config" },
-                { value: "Fast", label: "JSON DB Operations" }
+                { value: "Real-time", label: "Speech Analytics" },
+                { value: "AI-driven", label: "ATS Optimization" },
+                { value: "Secure", label: "Evaluation Panel" }
+              ]}
+            />
+            <ProjectRow
+              index={5}
+              title="ArthroCare AI"
+              category="AI Clinical Decision Support"
+              problem="Rheumatoid Arthritis is frequently underdiagnosed due to inconsistent symptom interpretation and fragmented analysis."
+              solution="Developed an intelligent clinical decision support system for RA risk prediction, longitudinal monitoring, and personalized recommendations."
+              impact="Supports early detection and personalized healthcare guidance using explainable machine learning models."
+              tech={["React", "Python", "Node.js", "XGBoost"]}
+              link="https://github.com/santhoshr-15/arthrocare-ai.git"
+              images={["/projects/Arthrocare-AI/1.png", "/projects/Arthrocare-AI/2.png", "/projects/Arthrocare-AI/3.png"]}
+              metrics={[
+                { value: "Early Check", label: "RA Risk Model" },
+                { value: "XGBoost", label: "ML Urgency Engine" },
+                { value: "Explainable", label: "Clinical Support" }
               ]}
             />
           </div>
@@ -529,37 +530,39 @@ function App() {
             )}
           </AnimatePresence>
 
-          {/* Additional Projects - Expandable Section */}
+{/* Additional Projects - Expandable Section */}
           <div className={`mt-16 overflow-hidden transition-all duration-700 ${showMoreProjects ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'}`}>
             <div className="flex flex-col gap-8 pt-8">
               <ProjectRow
-                index={6}
-                title="InterviewIQ"
-                category="AI Interview & Career Assistance"
-                problem="Candidates lack realistic interview practice environments with detailed performance feedback."
-                solution="Built an AI-powered interview practice platform with resume analysis, real-time evaluation, and intelligent feedback systems."
-                impact="Helps candidates improve technical interview performance through personalized AI-driven assessments."
-                tech={["Next.js", "FastAPI", "OpenRouter", "Node.js"]}
-                link="https://github.com/amaljoshmaadhavj/InterviewIQ.git"
+                index={4}
+                title="INYA Airlines"
+                category="Travel & Booking Systems"
+                problem="Lightweight flight booking systems often lack simple APIs for reservation tracking and cancellation workflows."
+                solution="Developed a RESTful flight booking API supporting reservations, booking status tracking, multilingual responses, and refund calculations."
+                impact="Simplifies airline reservation workflows with fast and lightweight backend operations."
+                tech={["Node.js", "Express.js", "REST API", "JSON Storage"]}
+                link="https://github.com/amaljoshmaadhavj/INYA-Airlines.git"
+                noImage={true}
                 metrics={[
-                  { value: "Real-time", label: "Speech Analytics" },
-                  { value: "AI-driven", label: "ATS Optimization" },
-                  { value: "Secure", label: "Evaluation Panel" }
+                  { value: "RESTful", label: "Lightweight API" },
+                  { value: "Automated", label: "Refund Config" },
+                  { value: "Fast", label: "JSON DB Operations" }
                 ]}
               />
               <ProjectRow
-                index={7}
-                title="ArthroCare AI"
-                category="AI Clinical Decision Support"
-                problem="Rheumatoid Arthritis is frequently underdiagnosed due to inconsistent symptom interpretation and fragmented analysis."
-                solution="Developed an intelligent clinical decision support system for RA risk prediction, longitudinal monitoring, and personalized recommendations."
-                impact="Supports early detection and personalized healthcare guidance using explainable machine learning models."
-                tech={["React", "Python", "Node.js", "XGBoost"]}
-                link="https://github.com/santhoshr-15/arthrocare-ai.git"
+                index={5}
+                title="TRIAGEON"
+                category="Clinical Health Tech"
+                problem="Delayed identification of high-risk patients often leads to poor healthcare prioritization and avoidable complications."
+                solution="Built an ML-powered digital triage platform for disease risk prediction, urgency classification, and explainable patient prioritization."
+                impact="Enables faster medical risk assessment and supports healthcare teams with intelligent urgency-aware recommendations."
+                tech={["Python", "React", "Flask", "Scikit-Learn"]}
+                link="https://github.com/amaljoshmaadhavj/Triageon.git"
+                noImage={true}
                 metrics={[
-                  { value: "Early Check", label: "RA Risk Model" },
-                  { value: "XGBoost", label: "ML Urgency Engine" },
-                  { value: "Explainable", label: "Clinical Support" }
+                  { value: "92%", label: "Urgency Accuracy" },
+                  { value: "Instant", label: "Risk Classifier" },
+                  { value: "Explainable", label: "Triage Engine" }
                 ]}
               />
             </div>
@@ -568,7 +571,7 @@ function App() {
       </section>
 
       {/* Experience & Certifications */}
-      <section id="experience" className="relative py-12 md:py-16 px-6 md:px-12 lg:px-24 bg-black overflow-hidden">
+      <section id="experience" className="relative py-12 md:py-16 px-6 md:px-12 lg:px-24 bg-background overflow-hidden">
         {/* Subtle grid background */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{
           backgroundImage: 'linear-gradient(#10b981 1px, transparent 1px), linear-gradient(90deg, #10b981 1px, transparent 1px)',
@@ -581,7 +584,7 @@ function App() {
           {/* Header */}
           <SectionTransition className="mb-6">
             <p className="text-emerald-400 font-mono text-xs uppercase tracking-[0.4em] mb-4">// 04 PROFESSIONAL RECORD</p>
-            <h2 className="text-4xl md:text-5xl font-display font-black tracking-tight text-white inline-flex items-center gap-4 uppercase">
+            <h2 className="text-4xl md:text-5xl font-display font-black tracking-tight text-foreground inline-flex items-center gap-4 uppercase">
               <span className="w-16 h-[2px] bg-gradient-to-r from-emerald-500 to-cyan-500" />
               Experience
             </h2>
@@ -591,7 +594,7 @@ function App() {
             {/* Main Experience Card */}
             <div className="lg:col-span-8 flex flex-col gap-6">
               <SectionTransition delay={0.1}>
-                <div className="relative rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-5 md:p-7 group hover:border-emerald-500/30 transition-all duration-500 overflow-hidden">
+                <div className="relative rounded-2xl border border-border bg-foreground/[0.03] backdrop-blur-sm p-5 md:p-7 group hover:border-emerald-500/30 transition-all duration-500 overflow-hidden">
                   {/* Top glow line */}
                   <div className="absolute -top-px left-10 right-10 h-px bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent" />
 
@@ -602,20 +605,20 @@ function App() {
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                         Internship
                       </span>
-                      <h3 className="text-2xl md:text-3xl font-display font-black uppercase tracking-tight text-white mt-2">
+                      <h3 className="text-2xl md:text-3xl font-display font-black uppercase tracking-tight text-foreground mt-2">
                         Artificial Intelligence Trainee
                       </h3>
                       <p className="text-emerald-400 font-mono text-sm mt-1 tracking-widest">KaviTamil Solutions</p>
                     </div>
                     <div className="shrink-0">
-                      <span className="font-mono text-xs text-white/40 bg-white/5 border border-white/10 px-4 py-2 rounded-full whitespace-nowrap">
+                      <span className="font-mono text-xs text-foreground/40 bg-foreground/5 border border-border px-4 py-2 rounded-full whitespace-nowrap">
                         July 2024 – Aug 2024
                       </span>
                     </div>
                   </div>
 
                   {/* Divider */}
-                  <div className="h-px bg-white/5 mb-6" />
+                  <div className="h-px bg-foreground/5 mb-6" />
 
                   {/* Responsibilities */}
                   <ul className="space-y-3.5">
@@ -626,15 +629,15 @@ function App() {
                     ].map(item => (
                       <li key={item.code} className="flex gap-5 group/item">
                         <span className="font-mono text-[10px] text-emerald-500/50 group-hover/item:text-emerald-400 transition-colors shrink-0 mt-1">{item.code}</span>
-                        <p className="text-white/60 leading-relaxed text-sm md:text-base group-hover/item:text-white/80 transition-colors">{item.text}</p>
+                        <p className="text-foreground/60 leading-relaxed text-sm md:text-base group-hover/item:text-foreground/80 transition-colors">{item.text}</p>
                       </li>
                     ))}
                   </ul>
 
                   {/* Tech tags */}
-                  <div className="flex flex-wrap gap-2 mt-5 pt-4 border-t border-white/5">
+                  <div className="flex flex-wrap gap-2 mt-5 pt-4 border-t border-border">
                     {['Python', 'NumPy', 'Pandas', 'Scikit-Learn', 'Feature Engineering', 'Model Evaluation'].map(tag => (
-                      <span key={tag} className="font-mono text-[10px] text-white/40 bg-white/5 border border-white/10 px-3 py-1 rounded-full hover:text-emerald-400 hover:border-emerald-500/30 transition-all cursor-default">
+                      <span key={tag} className="font-mono text-[10px] text-foreground/40 bg-foreground/5 border border-border px-3 py-1 rounded-full hover:text-emerald-400 hover:border-emerald-500/30 transition-all cursor-default">
                         {tag}
                       </span>
                     ))}
@@ -643,9 +646,9 @@ function App() {
               </SectionTransition>
 
               <SectionTransition delay={0.5}>
-                <div className="max-w-3xl rounded-2xl border border-white/10 bg-white/[0.03] p-4 md:p-5 relative overflow-hidden">
+                <div className="max-w-3xl rounded-2xl border border-border bg-foreground/[0.03] p-4 md:p-5 relative overflow-hidden">
                   <div className="absolute -top-px left-6 right-6 h-px bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent" />
-                  <p className="font-mono text-[10px] text-white/30 uppercase tracking-[0.3em] mb-4">// AT A GLANCE</p>
+                  <p className="font-mono text-[10px] text-foreground/30 uppercase tracking-[0.3em] mb-4">// AT A GLANCE</p>
                   <div className="grid grid-cols-2 gap-3 md:gap-4">
                     {[
                       { value: '8+', label: 'Certifications' },
@@ -654,8 +657,8 @@ function App() {
                       { value: 'Active', label: 'Building' },
                     ].map(stat => (
                       <div key={stat.label} className="flex flex-col gap-1">
-                        <span className="text-2xl font-display font-black text-white tracking-tight">{stat.value}</span>
-                        <span className="text-[9px] font-mono uppercase tracking-widest text-white/30">{stat.label}</span>
+                        <span className="text-2xl font-display font-black text-foreground tracking-tight">{stat.value}</span>
+                        <span className="text-[9px] font-mono uppercase tracking-widest text-foreground/30">{stat.label}</span>
                       </div>
                     ))}
                   </div>
@@ -666,16 +669,16 @@ function App() {
             {/* Certifications Column */}
             <div className="lg:col-span-4 flex flex-col gap-3">
               <SectionTransition delay={0.2}>
-                <p className="font-mono text-[10px] text-white/30 uppercase tracking-[0.3em] mb-3">// CERTIFICATIONS</p>
+                <p className="font-mono text-[10px] text-foreground/30 uppercase tracking-[0.3em] mb-3">// CERTIFICATIONS</p>
                 <div className="space-y-2">
                   {experienceCertifications.map((cert, i) => (
                     <SectionTransition key={cert.title} delay={0.25 + i * 0.06}>
-                      <div className="group flex flex-col gap-2 p-2.5 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/[0.12] transition-all duration-300 cursor-default">
+                      <div className="group flex flex-col gap-2 p-2.5 rounded-xl border border-border bg-foreground/[0.02] hover:bg-foreground/[0.05] hover:border-border transition-all duration-300 cursor-default">
                         <div className="flex items-start gap-3">
-                          <span className={`w-1.5 h-1.5 rounded-full ${certificationColorClasses[cert.color] ?? 'bg-white/40'} opacity-60 group-hover:opacity-100 transition-opacity shrink-0 mt-1`} />
-                          <span className="text-sm text-white/70 group-hover:text-white/90 transition-colors font-medium leading-snug">{cert.title}</span>
+                          <span className={`w-1.5 h-1.5 rounded-full ${certificationColorClasses[cert.color] ?? 'bg-foreground/40'} opacity-60 group-hover:opacity-100 transition-opacity shrink-0 mt-1`} />
+                          <span className="text-sm text-foreground/70 group-hover:text-foreground/90 transition-colors font-medium leading-snug">{cert.title}</span>
                         </div>
-                        <span className="text-[9px] font-mono uppercase tracking-widest text-white/25 group-hover:text-white/50 transition-colors whitespace-normal leading-relaxed pl-5">{cert.issuer}</span>
+                        <span className="text-[9px] font-mono uppercase tracking-widest text-foreground/25 group-hover:text-foreground/50 transition-colors whitespace-normal leading-relaxed pl-5">{cert.issuer}</span>
                       </div>
                     </SectionTransition>
                   ))}
@@ -723,42 +726,47 @@ function App() {
             transition={{ duration: 0.7, ease: 'easeOut' }}
             className="pointer-events-none absolute hidden lg:block right-0 top-[210px] xl:top-[225px] w-[min(34vw,380px)]"
           >
-            <div className="relative overflow-hidden rounded-2xl border border-black/10 dark:border-white/10 bg-black text-white shadow-2xl shadow-black/10">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-cyan-500/10 pointer-events-none" />
+            <div className="relative overflow-hidden rounded-2xl border border-slate-700/50 dark:border-white/15 bg-slate-900/95 dark:bg-zinc-950/95 text-slate-100 shadow-2xl shadow-slate-900/20 dark:shadow-black/50 backdrop-blur-md">
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-cyan-500/10 pointer-events-none" />
               <div className="relative p-4 xl:p-5">
-                <div className="flex items-center justify-between mb-3 text-[9px] uppercase tracking-[0.35em] text-white/40 font-mono">
-                  <span>build_future.py</span>
-                  <span>live</span>
+                <div className="flex items-center justify-between mb-3 text-[10px] uppercase tracking-[0.3em] font-mono border-b border-slate-800 dark:border-white/10 pb-2.5">
+                  <span className="text-emerald-400 font-bold flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
+                    BUILD_FUTURE.PY
+                  </span>
+                  <span className="text-cyan-400 font-bold text-[9px] px-2 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/20">LIVE</span>
                 </div>
-                <div className="space-y-1.5 font-mono text-[11px] xl:text-xs leading-relaxed text-white/85">
+                <div className="space-y-2 font-mono text-[11px] xl:text-xs leading-relaxed">
                   {[
-                    'def build_future():',
-                    '    learn()',
-                    '    build()',
-                    '    innovate()',
-                    '',
-                    'build_future()'
-                  ].map((line, index) => (
+                    { text: 'def build_future():', color: 'text-purple-400 font-bold' },
+                    { text: '    learn()', color: 'text-sky-300' },
+                    { text: '    build()', color: 'text-cyan-300'},
+                    { text: '    innovate()', color: 'text-cyan-300' },
+                    { text: '', color: '' },
+                    { text: 'build_future()', color: 'text-emerald-400 font-bold drop-shadow-[0_0_8px_rgba(52,211,153,0.6)]' }
+                  ].map((item, index) => (
                     <motion.div
-                      key={line || `blank-${index}`}
+                      key={item.text || `blank-${index}`}
                       initial={{ opacity: 0, x: -10 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true, amount: 0.5 }}
                       transition={{ duration: 0.35, delay: 0.1 + index * 0.08 }}
-                      className="flex items-start gap-2.5"
+                      className="flex items-start gap-3"
                     >
-                      <span className="w-4 text-right text-white/30 select-none">{index < 4 ? `0${index + 1}` : ''}</span>
-                      <span className={line === 'build_future()' ? 'text-primary' : line === 'def build_future():' ? 'text-cyan-300' : 'text-white/85'}>
-                        {line || '\u00a0'}
+                      <span className="w-4 text-right text-slate-500 font-mono select-none text-[10px] pt-0.5">
+                        {index < 5 && item.text ? `0${index + 1}` : ''}
+                      </span>
+                      <span className={cn(item.color || 'text-slate-200', item.text && item.text.startsWith('    ') ? 'pl-4' : '')}>
+                        {item.text || '\u00a0'}
                       </span>
                     </motion.div>
                   ))}
                 </div>
               </div>
               <motion.span
-                animate={{ opacity: [0.2, 1, 0.2] }}
-                transition={{ duration: 1.2, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute bottom-3 right-3 w-2 h-2 rounded-full bg-primary shadow-[0_0_18px_rgba(16,185,129,0.9)]"
+                animate={{ opacity: [0.3, 1, 0.3] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+                className="absolute bottom-3 right-3 w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_14px_rgba(52,211,153,0.9)]"
               />
             </div>
           </motion.div>
@@ -845,28 +853,31 @@ function SkillCard({ icon, title, skills, className }: { icon: React.ReactNode, 
 
   // Dynamic colors and glow configurations based on category
   const folderColor =
-    title.includes("Machine Learning") ? '#6366f1' : // Indigo
-      title.includes("Deep Learning") ? '#10b981' : // Emerald
-        title.includes("Computer Vision") ? '#3b82f6' : // Blue
-          title.includes("Data Systems") ? '#f59e0b' : // Amber
-            title.includes("Engineering") ? '#f43f5e' : // Rose
-              '#10b981';
+    title.includes("Software Engineering") ? '#6366f1' : // Indigo
+      title.includes("AI & Machine Learning") ? '#10b981' : // Emerald
+        title.includes("Generative AI") ? '#06b6d4' : // Cyan
+          title.includes("Backend") ? '#f59e0b' : // Amber
+            title.includes("Data & Databases") ? '#8b5cf6' : // Violet
+              title.includes("Computer Vision") ? '#f43f5e' : // Rose
+                '#10b981';
 
   const glowColorClass =
-    title.includes("Machine Learning") ? 'hover:border-indigo-500/40 hover:shadow-indigo-500/5' :
-      title.includes("Deep Learning") ? 'hover:border-emerald-500/40 hover:shadow-emerald-500/5' :
-        title.includes("Computer Vision") ? 'hover:border-blue-500/40 hover:shadow-blue-500/5' :
-          title.includes("Data Systems") ? 'hover:border-amber-500/40 hover:shadow-amber-500/5' :
-            title.includes("Engineering") ? 'hover:border-rose-500/40 hover:shadow-rose-500/5' :
-              'hover:border-emerald-500/40 hover:shadow-emerald-500/5';
+    title.includes("Software Engineering") ? 'hover:border-indigo-500/40 hover:shadow-indigo-500/5' :
+      title.includes("AI & Machine Learning") ? 'hover:border-emerald-500/40 hover:shadow-emerald-500/5' :
+        title.includes("Generative AI") ? 'hover:border-cyan-500/40 hover:shadow-cyan-500/5' :
+          title.includes("Backend") ? 'hover:border-amber-500/40 hover:shadow-amber-500/5' :
+            title.includes("Data & Databases") ? 'hover:border-violet-500/40 hover:shadow-violet-500/5' :
+              title.includes("Computer Vision") ? 'hover:border-rose-500/40 hover:shadow-rose-500/5' :
+                'hover:border-emerald-500/40 hover:shadow-emerald-500/5';
 
   const glowLightColorClass =
-    title.includes("Machine Learning") ? 'bg-indigo-500/5' :
-      title.includes("Deep Learning") ? 'bg-emerald-500/5' :
-        title.includes("Computer Vision") ? 'bg-blue-500/5' :
-          title.includes("Data Systems") ? 'bg-amber-500/5' :
-            title.includes("Engineering") ? 'bg-rose-500/5' :
-              'bg-emerald-500/5';
+    title.includes("Software Engineering") ? 'bg-indigo-500/5' :
+      title.includes("AI & Machine Learning") ? 'bg-emerald-500/5' :
+        title.includes("Generative AI") ? 'bg-cyan-500/5' :
+          title.includes("Backend") ? 'bg-amber-500/5' :
+            title.includes("Data & Databases") ? 'bg-violet-500/5' :
+              title.includes("Computer Vision") ? 'bg-rose-500/5' :
+                'bg-emerald-500/5';
 
   // Dynamically split skills into 3 parts for papers
   const paperItemsCount = Math.ceil(skills.length / 3);
@@ -876,19 +887,19 @@ function SkillCard({ icon, title, skills, className }: { icon: React.ReactNode, 
 
   const papers = [
     // Paper 1
-    <div key="p1" className="p-2 h-full flex flex-col justify-between font-mono text-[5.5px] leading-tight select-none text-left text-neutral-800">
+    <div key="p1" className="p-2 h-full flex flex-col justify-between font-mono text-[5.5px] leading-tight select-none text-left text-foreground">
       <div>
-        <div className="flex items-center justify-between border-b border-black/10 pb-0.5 mb-1 font-bold text-black/70">
+        <div className="flex items-center justify-between border-b border-border pb-0.5 mb-1 font-bold text-foreground/70">
           <DecryptedText
             key={folderOpen ? "open-file-1" : "closed-file-1"}
             text="📁 core_skills.sh"
             animateOn="view"
             speed={90}
             maxIterations={15}
-            className="text-black font-bold"
+            className="text-foreground font-bold"
             encryptedClassName="text-emerald-600 font-bold"
           />
-          <span className="text-neutral-400">01</span>
+          <span className="text-muted-foreground">01</span>
         </div>
         <div className="space-y-0.5 mt-1.5">
           {paperSkills1.map((s, idx) => (
@@ -901,7 +912,7 @@ function SkillCard({ icon, title, skills, className }: { icon: React.ReactNode, 
                   animateOn="view"
                   speed={65}
                   maxIterations={12}
-                  className="text-neutral-800"
+                  className="text-foreground"
                   encryptedClassName="text-emerald-600 font-medium"
                 />
               </span>
@@ -909,25 +920,25 @@ function SkillCard({ icon, title, skills, className }: { icon: React.ReactNode, 
           ))}
         </div>
       </div>
-      <div className="text-[4px] text-neutral-400 border-t border-black/5 pt-0.5 uppercase tracking-wider">
+      <div className="text-[4px] text-muted-foreground border-t border-border pt-0.5 uppercase tracking-wider">
         // CORE TECH
       </div>
     </div>,
 
     // Paper 2
-    <div key="p2" className="p-2 h-full flex flex-col justify-between font-mono text-[5.5px] leading-tight select-none text-left text-neutral-800">
+    <div key="p2" className="p-2 h-full flex flex-col justify-between font-mono text-[5.5px] leading-tight select-none text-left text-foreground">
       <div>
-        <div className="flex items-center justify-between border-b border-black/10 pb-0.5 mb-1 font-bold text-black/70">
+        <div className="flex items-center justify-between border-b border-border pb-0.5 mb-1 font-bold text-foreground/70">
           <DecryptedText
             key={folderOpen ? "open-file-2" : "closed-file-2"}
             text="📁 adv_concepts.py"
             animateOn="view"
             speed={90}
             maxIterations={15}
-            className="text-black font-bold"
+            className="text-foreground font-bold"
             encryptedClassName="text-blue-600 font-bold"
           />
-          <span className="text-neutral-400">02</span>
+          <span className="text-muted-foreground">02</span>
         </div>
         <div className="space-y-0.5 mt-1.5">
           {paperSkills2.map((s, idx) => (
@@ -940,7 +951,7 @@ function SkillCard({ icon, title, skills, className }: { icon: React.ReactNode, 
                   animateOn="view"
                   speed={65}
                   maxIterations={12}
-                  className="text-neutral-800"
+                  className="text-foreground"
                   encryptedClassName="text-blue-600 font-medium"
                 />
               </span>
@@ -948,25 +959,25 @@ function SkillCard({ icon, title, skills, className }: { icon: React.ReactNode, 
           ))}
         </div>
       </div>
-      <div className="text-[4px] text-neutral-400 border-t border-black/5 pt-0.5 uppercase tracking-wider">
+      <div className="text-[4px] text-muted-foreground border-t border-border pt-0.5 uppercase tracking-wider">
         // ADVANCED
       </div>
     </div>,
 
     // Paper 3
-    <div key="p3" className="p-2 h-full flex flex-col justify-between font-mono text-[5.5px] leading-tight select-none text-left text-neutral-800">
+    <div key="p3" className="p-2 h-full flex flex-col justify-between font-mono text-[5.5px] leading-tight select-none text-left text-foreground">
       <div>
-        <div className="flex items-center justify-between border-b border-black/10 pb-0.5 mb-1 font-bold text-black/70">
+        <div className="flex items-center justify-between border-b border-border pb-0.5 mb-1 font-bold text-foreground/70">
           <DecryptedText
             key={folderOpen ? "open-file-3" : "closed-file-3"}
             text="📁 frameworks.json"
             animateOn="view"
             speed={90}
             maxIterations={15}
-            className="text-black font-bold"
+            className="text-foreground font-bold"
             encryptedClassName="text-amber-600 font-bold"
           />
-          <span className="text-neutral-400">03</span>
+          <span className="text-muted-foreground">03</span>
         </div>
         <div className="space-y-0.5 mt-1.5">
           {paperSkills3.map((s, idx) => (
@@ -979,7 +990,7 @@ function SkillCard({ icon, title, skills, className }: { icon: React.ReactNode, 
                   animateOn="view"
                   speed={65}
                   maxIterations={12}
-                  className="text-neutral-800"
+                  className="text-foreground"
                   encryptedClassName="text-amber-600 font-medium"
                 />
               </span>
@@ -987,7 +998,7 @@ function SkillCard({ icon, title, skills, className }: { icon: React.ReactNode, 
           ))}
         </div>
       </div>
-      <div className="text-[4px] text-neutral-400 border-t border-black/5 pt-0.5 uppercase tracking-wider">
+      <div className="text-[4px] text-muted-foreground border-t border-border pt-0.5 uppercase tracking-wider">
         // TOOLS
       </div>
     </div>
@@ -996,24 +1007,24 @@ function SkillCard({ icon, title, skills, className }: { icon: React.ReactNode, 
   const renderDetailedPaper = (index: number) => {
     if (index === 0) {
       return (
-        <div className="font-mono text-neutral-800 flex flex-col justify-between h-full">
+        <div className="font-mono text-foreground flex flex-col justify-between h-full">
           <div>
-            <div className="flex items-center justify-between border-b border-neutral-200 pb-3 mb-4">
-              <span className="text-sm font-bold text-neutral-500 flex items-center gap-2">
+            <div className="flex items-center justify-between border-b border-border pb-3 mb-4">
+              <span className="text-sm font-bold text-muted-foreground flex items-center gap-2">
                 📄 core_skills.sh
               </span>
-              <span className="text-xs px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold">CORE</span>
+              <span className="text-xs px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-400 font-bold">CORE</span>
             </div>
             <div className="space-y-3 mt-4">
               {paperSkills1.map((s, idx) => (
                 <div key={idx} className="flex items-center gap-3 text-sm">
                   <span className="text-emerald-500 font-bold text-base">✓</span>
-                  <span className="font-semibold text-neutral-900">{s}</span>
+                  <span className="font-semibold text-foreground">{s}</span>
                 </div>
               ))}
             </div>
           </div>
-          <div className="text-[10px] text-neutral-400 border-t border-neutral-100 pt-3 mt-6 uppercase tracking-wider">
+          <div className="text-[10px] text-muted-foreground border-t border-border pt-3 mt-6 uppercase tracking-wider">
             // FOUNDATIONAL MACHINE LEARNING & DEEP LEARNING TECHNIQUES
           </div>
         </div>
@@ -1021,48 +1032,48 @@ function SkillCard({ icon, title, skills, className }: { icon: React.ReactNode, 
     }
     if (index === 1) {
       return (
-        <div className="font-mono text-neutral-800 flex flex-col justify-between h-full">
+        <div className="font-mono text-foreground flex flex-col justify-between h-full">
           <div>
-            <div className="flex items-center justify-between border-b border-neutral-200 pb-3 mb-4">
-              <span className="text-sm font-bold text-neutral-500 flex items-center gap-2">
+            <div className="flex items-center justify-between border-b border-border pb-3 mb-4">
+              <span className="text-sm font-bold text-muted-foreground flex items-center gap-2">
                 📄 adv_concepts.py
               </span>
-              <span className="text-xs px-2 py-0.5 rounded bg-blue-100 text-blue-800 font-bold">ADVANCED</span>
+              <span className="text-xs px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 font-bold">ADVANCED</span>
             </div>
             <div className="space-y-3 mt-4">
               {paperSkills2.map((s, idx) => (
                 <div key={idx} className="flex items-center gap-3 text-sm">
                   <span className="text-blue-500 font-bold text-base">::</span>
-                  <span className="font-semibold text-neutral-900">{s}</span>
+                  <span className="font-semibold text-foreground">{s}</span>
                 </div>
               ))}
             </div>
           </div>
-          <div className="text-[10px] text-neutral-400 border-t border-neutral-100 pt-3 mt-6 uppercase tracking-wider">
+          <div className="text-[10px] text-muted-foreground border-t border-border pt-3 mt-6 uppercase tracking-wider">
             // SPECIALIZED DOMAINS, ARCHITECTURES, & INTELLIGENT SYSTEMS
           </div>
         </div>
       );
     }
     return (
-      <div className="font-mono text-neutral-800 flex flex-col justify-between h-full">
+      <div className="font-mono text-foreground flex flex-col justify-between h-full">
         <div>
-          <div className="flex items-center justify-between border-b border-neutral-200 pb-3 mb-4">
-            <span className="text-sm font-bold text-neutral-500 flex items-center gap-2">
+          <div className="flex items-center justify-between border-b border-border pb-3 mb-4">
+            <span className="text-sm font-bold text-muted-foreground flex items-center gap-2">
               📄 frameworks.json
             </span>
-            <span className="text-xs px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold">ECOSYSTEM</span>
+            <span className="text-xs px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-400 font-bold">ECOSYSTEM</span>
           </div>
           <div className="space-y-3 mt-4">
             {paperSkills3.map((s, idx) => (
               <div key={idx} className="flex items-center gap-3 text-sm">
                 <span className="text-amber-500 font-bold text-base">▶</span>
-                <span className="font-semibold text-neutral-900">{s}</span>
+                <span className="font-semibold text-foreground">{s}</span>
               </div>
             ))}
           </div>
         </div>
-        <div className="text-[10px] text-neutral-400 border-t border-neutral-100 pt-3 mt-6 uppercase tracking-wider">
+        <div className="text-[10px] text-muted-foreground border-t border-border pt-3 mt-6 uppercase tracking-wider">
           // INTEGRATED PRODUCTION LIBRARIES, DATABASES & DEV TOOLS
         </div>
       </div>
@@ -1080,7 +1091,7 @@ function SkillCard({ icon, title, skills, className }: { icon: React.ReactNode, 
         transformOrigin: "top center"
       }}
       className={cn(
-        "group p-8 shadow-2xl relative rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-md flex flex-col items-center justify-between transition-all duration-500 overflow-visible min-h-[350px]",
+        "group p-8 shadow-2xl relative rounded-2xl border border-border bg-foreground/[0.02] backdrop-blur-md flex flex-col items-center justify-between transition-all duration-500 overflow-visible min-h-[350px]",
         glowColorClass,
         className
       )}
@@ -1091,12 +1102,12 @@ function SkillCard({ icon, title, skills, className }: { icon: React.ReactNode, 
       {/* Header */}
       <div className="w-full flex items-center justify-between mb-6 relative z-10">
         <div className="flex items-center gap-3">
-          <div className="p-2 bg-white/5 rounded-xl border border-white/10 text-white/80 group-hover:text-white transition-colors">
+          <div className="p-2 bg-foreground/5 rounded-xl border border-border text-foreground/80 group-hover:text-foreground transition-colors">
             {icon}
           </div>
-          <h3 className="text-base md:text-lg font-bold font-display uppercase tracking-tight text-white">{title}</h3>
+          <h3 className="text-base md:text-lg font-bold font-display uppercase tracking-tight text-foreground">{title}</h3>
         </div>
-        <span className="font-mono text-[8px] text-white/30 tracking-[0.2em] uppercase">// 03 SKILLS</span>
+        <span className="font-mono text-[8px] text-foreground/30 tracking-[0.2em] uppercase">// 03 SKILLS</span>
       </div>
 
       {/* Centered Folder component */}
@@ -1111,8 +1122,8 @@ function SkillCard({ icon, title, skills, className }: { icon: React.ReactNode, 
       </div>
 
       {/* Footer Visual Hint */}
-      <div className="mt-4 font-mono text-[8px] text-white/30 uppercase tracking-widest flex items-center gap-1.5 pointer-events-none select-none relative z-10">
-        <span className="w-1.5 h-1.5 rounded-full bg-white/20 group-hover:bg-emerald-500 transition-colors animate-pulse" />
+      <div className="mt-4 font-mono text-[8px] text-foreground/30 uppercase tracking-widest flex items-center gap-1.5 pointer-events-none select-none relative z-10">
+        <span className="w-1.5 h-1.5 rounded-full bg-foreground/20 group-hover:bg-emerald-500 transition-colors animate-pulse" />
         Explore Source Folder
       </div>
 
@@ -1135,20 +1146,20 @@ function SkillCard({ icon, title, skills, className }: { icon: React.ReactNode, 
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-lg aspect-[4/3] p-8 md:p-10 rounded-3xl bg-neutral-50 shadow-2xl border border-white/20 flex flex-col justify-between"
+              className="relative w-full max-w-lg aspect-[4/3] p-8 md:p-10 rounded-3xl bg-neutral-100 dark:bg-neutral-900 shadow-2xl border border-border flex flex-col justify-between"
               style={{
                 backgroundImage: 'radial-gradient(circle at 100% 100%, rgba(255,255,255,0.8) 0%, rgba(240,240,240,0.5) 100%)'
               }}
             >
               {/* Silver Metallic Clip/Fastener at the top */}
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-24 h-6 bg-gradient-to-r from-neutral-300 via-neutral-100 to-neutral-400 border border-neutral-200/50 rounded-b-lg shadow-md z-50 flex items-center justify-center">
-                <span className="w-16 h-1 rounded bg-neutral-400/20" />
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-24 h-6 bg-gradient-to-r from-neutral-300 via-neutral-100 to-neutral-400 border border-neutral-200/50 dark:border-border rounded-b-lg shadow-md z-50 flex items-center justify-center">
+                <span className="w-16 h-1 rounded bg-neutral-400/20 dark:bg-neutral-500/20" />
               </div>
 
               {/* Close Button */}
               <button
                 onClick={() => setActivePaper(null)}
-                className="absolute top-4 right-4 p-2.5 rounded-full bg-black/5 hover:bg-black/10 text-neutral-500 hover:text-neutral-800 transition-colors font-bold z-50 text-xs"
+                className="absolute top-4 right-4 p-2.5 rounded-full bg-black/5 hover:bg-black/10 text-neutral-500 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-200 transition-colors font-bold z-50 text-xs"
               >
                 ✕
               </button>
@@ -1175,10 +1186,15 @@ interface ProjectRowProps {
   tech: string[];
   link: string;
   metrics: { value: string; label: string }[];
+  images?: string[];
+  hideImages?: boolean;
+  noImage?: boolean;
 }
 
-function ProjectRow({ index, title, category, problem, solution, impact, tech, link, metrics }: ProjectRowProps) {
+function ProjectRow({ index, title, category, problem, solution, impact, tech, link, metrics, images, hideImages, noImage }: ProjectRowProps) {
   const isEven = index % 2 === 0;
+  const defaultImages = [heroBackground, heroHoverBackground, heroPng];
+  const cardImages = images ? [...images, ...defaultImages].slice(0, 3) : defaultImages;
 
   return (
     <SectionTransition>
@@ -1187,34 +1203,42 @@ function ProjectRow({ index, title, category, problem, solution, impact, tech, l
         isEven ? "lg:flex-row-reverse" : "lg:flex-row"
       )}>
         {/* Graphical Visual Mockup representation — Card Swap Stack */}
-        <div className="relative aspect-[4/3] w-full lg:w-1/2 overflow-visible flex items-center justify-center bg-transparent">
-          <div className="relative w-[240px] h-[180px] sm:w-[320px] sm:h-[240px] md:w-[360px] md:h-[270px] flex items-center justify-center">
-            <CardSwap
-              width="100%"
-              height="100%"
-              cardDistance={40}
-              verticalDistance={30}
-              delay={3500}
-              pauseOnHover={true}
-              easing="elastic"
-              faceOpposite={!isEven}
-            >
-              <Card className="w-full h-full border border-white/10 rounded-2xl overflow-hidden shadow-2xl bg-black">
-                <img src={heroBackground} alt="View 1" className="w-full h-full object-cover pointer-events-none" />
-              </Card>
-              <Card className="w-full h-full border border-white/10 rounded-2xl overflow-hidden shadow-2xl bg-black">
-                <img src={heroHoverBackground} alt="View 2" className="w-full h-full object-cover pointer-events-none" />
-              </Card>
-              <Card className="w-full h-full border border-white/10 rounded-2xl overflow-hidden shadow-2xl bg-black">
-                <img src={heroPng} alt="View 3" className="w-full h-full object-cover pointer-events-none" />
-              </Card>
-            </CardSwap>
+        {!noImage && !hideImages ? (
+          <div className="relative aspect-[4/3] w-full lg:w-1/2 overflow-visible flex items-center justify-center bg-transparent">
+            <div className="relative w-[240px] h-[180px] sm:w-[320px] sm:h-[240px] md:w-[360px] md:h-[270px] flex items-center justify-center">
+              <CardSwap
+                width="100%"
+                height="100%"
+                cardDistance={40}
+                verticalDistance={30}
+                delay={3500}
+                pauseOnHover={true}
+                easing="elastic"
+                faceOpposite={!isEven}
+              >
+                <Card className="w-full h-full overflow-hidden shadow-2xl bg-black border border-white/10 rounded-2xl">
+                  <img src={cardImages[0]} alt="View 1" className="w-full h-full object-cover pointer-events-none block" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                </Card>
+                <Card className="w-full h-full overflow-hidden shadow-2xl bg-black border border-white/10 rounded-2xl">
+                  <img src={cardImages[1]} alt="View 2" className="w-full h-full object-cover pointer-events-none block" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                </Card>
+                <Card className="w-full h-full overflow-hidden shadow-2xl bg-black border border-white/10 rounded-2xl">
+                  <img src={cardImages[2]} alt="View 3" className="w-full h-full object-cover pointer-events-none block" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                </Card>
+              </CardSwap>
+            </div>
           </div>
-        </div>
+        ) : null}
 
         {/* Product Details */}
-        <div className="w-full lg:w-1/2 flex flex-col gap-6">
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary/50">
+        <div className={cn(
+          "w-full flex flex-col gap-6",
+          noImage ? "lg:w-full items-center text-center" : "lg:w-1/2"
+        )}>
+          <div className={cn(
+            "flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-primary/50",
+            noImage ? "justify-center" : ""
+          )}>
             <span className="w-2 h-2 rounded-full bg-primary/40" />
             {category}
           </div>
@@ -1252,7 +1276,10 @@ function ProjectRow({ index, title, category, problem, solution, impact, tech, l
           <a
             href={link}
             target="_blank"
-            className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-foreground hover:text-primary transition-all mt-4 group/explore"
+            className={cn(
+              "flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-foreground hover:text-primary transition-all mt-4 group/explore",
+              noImage ? "justify-center" : ""
+            )}
           >
             <span>Explore Github</span>
             <ArrowRight size={14} className="transition-transform group-hover/explore:translate-x-1" />
